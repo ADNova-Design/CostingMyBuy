@@ -85,10 +85,10 @@ $(document).ready(function() {
     var precioporlibras = nuevoPrecioLibras;
     var resultado = $('#resultado').val();
 
-    var mensaje = "Precio de producto: " + precio.toFixed(2) + " USD\n" +
+    var mensaje = "*Valor del Encargo*\n";
+      "Precio de producto: " + precio.toFixed(2) + " USD\n" +
       "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
-      "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(0) + "%\n" +
-      "Precio por libras: " + precioporlibras.toFixed(2) + " USD\n\n" +
+      "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(0) + "%\n\n" +
       "Resultado: " + resultado + " CUP";
 
     if (navigator.share) {

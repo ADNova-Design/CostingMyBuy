@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <title>Costing My Buy</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+  <section class="navigation">
+    <nav>
+      <div class="nav-movil">
+        <a id="nav-boton" href="#!">
+          <span></span>
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li>
+          <a href="#">Ajustes</a>
+          <ul class="nav-submenu">
+            <li><a id="ajustes-porciento" href="#">Comisión sobre precio</a></li>
+            <li><a id="ajustes-precio-libras" href="#">Precio por libras</a></li>
+          </ul>  
+        </li>      
+        <li></li>
+
+        <li>
+          <a href="#">Información</a>
+          <ul class="nav-submenu">
+            <li><a href="https://www.cubatramite.com/listado-para-la-determinacion-del-caracter-comercial-y-valoracion-en-aduana-de-cuba/">Aranceles</a></li>
+            <li><a href="https://d-cuba.com/aduana-de-cuba">Regulaciones Aduanales</a></li>
+          </ul>
+        </li>
+        <li><a href="https://wa.me/5359072053">Contacto</a></li>
+        <li><a class="logo" href="https://adnova-design.github.io/ADNova/index.html#inicio">
+            <img class="img_logo"src="https://adnova-design.github.io/ADNova/imagenes/logo.png" alt="Logo de mi empresa">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+
+  <button id="btn-compartir" class="btn-compartir">
+    <span class="icono-compartir">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#007bff" width="24" height="24">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M15 14h2.83L10 19.83 6.17 16H9V4h6v10z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+      </svg>
+    </span>
+  </button>
+
+
+  <div class="container">
+    <h1 id="titulo"><strong>Calculadora de </strong><span class="encargos">Encargos</span></h1>
+    
+
+    <form>
+      <div class="input-group">
+        <label for="precio">Precio del producto:</label>
+        <input type="number" id="precio" step="0.01" required>
+      </div>
+      <div class="input-group">
+        <label for="tasa">Tasa del USD:</label>
+        <input type="number" id="tasa" step="0.01" required>
+      </div>    
+      <div class="result">
+        <label for="resultado">Resultado en CUP:</label>
+        <input type="text" id="resultado" readonly>
+      </div>
+      <p>Defina en los ajustes la comisión sobre la compra y el precio sobre las libras.</p></br>
+    </form>
+  </div>
+
+</body>
+<script src="script.js"></script>
+</html>

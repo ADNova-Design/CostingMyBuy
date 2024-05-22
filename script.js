@@ -74,15 +74,22 @@ function compartirResultado() {
   var peso = parseFloat($('#peso').val());
   var tasa = parseFloat($('#tasa').val());
 
-  var porcentajeSobreCompra = nuevoPorcentaje * 100;
+  var porcentajeSobreCompra = nuevoPorcentaje / 100;
+
+  // Verificar si el nuevoPrecioLibras está definido y es mayor que cero
+  var nuevoPrecioLibras = parseFloat($('#nuevoPrecioLibras').val());
+  if (isNaN(nuevoPrecioLibras) || nuevoPrecioLibras <= 0) {
+    nuevoPrecioLibras = 5; // Establecer un precio por libra predeterminado de 5
+  }
+
   var precioporlibras = precio * nuevoPrecioLibras;
   var resultado = $('#resultado').val();
 
   var mensaje = "Precio de producto: " + precio.toFixed(2) + "\n" +
     "Peso en Lb: " + peso.toFixed(2) + "\n" +
     "Tasa USD: " + tasa.toFixed(2) + "\n" +
-    "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(2) + "\n" +
-    "Precio por libras: " + precioporlibras.toFixed(2) + "\n" +
+    "Porcentaje sobre compra: " + (porcentajeSobreCompra * 100).toFixed(0) + "%\n" +
+    "Precio por libras: " + precioporlibras.toFixed(2) + "\n\n" +
     "Resultado: " + resultado;
 
   if (navigator.share) {

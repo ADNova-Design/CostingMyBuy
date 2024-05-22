@@ -463,7 +463,6 @@ h1 {
   }
   
   @media (max-width: 591px) {
-
    .btn-compartir {
       width: 60px;
       height: 60px;
@@ -515,7 +514,7 @@ h1 {
           font-family: 'Open Sans', sans-serif;
           position: relative;
           top: 10%;
-          left: 40%;
+          left: 35%;
           transform: translate(-50%, -50%);
           background: linear-gradient(-45deg, #f5077e, #9707aa, #0619c7);
           background-size: 200%;

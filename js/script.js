@@ -89,7 +89,8 @@ $(document).ready(function() {
   "Precio de producto: " + precio.toFixed(2) + " USD\n" +
   "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
   "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(0) + "%\n\n" +
-  "Resultado: " + resultado + " CUP";
+  "*Resultado:* " + resultado + " CUP\n\n" +
+  "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";
 
     if (navigator.share) {
       navigator.share({

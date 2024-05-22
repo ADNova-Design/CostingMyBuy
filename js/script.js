@@ -82,7 +82,7 @@ $(document).ready(function() {
       nuevoPrecioLibras = 5; // Establecer un precio por libra predeterminado de 5
     }
 
-    var precioporlibras = precio * nuevoPrecioLibras;
+    var precioporlibras = nuevoPrecioLibras;
     var resultado = $('#resultado').val();
 
     var mensaje = "Precio de producto: " + precio.toFixed(2) + " USD\n" +

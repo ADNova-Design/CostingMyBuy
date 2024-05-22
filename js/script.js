@@ -85,7 +85,7 @@ $(document).ready(function() {
     var precioporlibras = nuevoPrecioLibras;
     var resultado = $('#resultado').val();
 
-    var mensaje = "*Valor del Encargo*\n\n"+
+    var mensaje = "Valor del Encargo\n\n"+
       "Precio de producto: " + precio.toFixed(2) + " USD\n" +
       "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
       "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(0) + "%\n\n" +

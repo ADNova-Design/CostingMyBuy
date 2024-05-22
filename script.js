@@ -68,7 +68,6 @@ $(document).ready(function() {
     calcularPrecio(nuevoPorcentaje);
   });
   
-
 // Función para compartir el resultado
 function compartirResultado() {
   var precio = parseFloat($('#precio').val());
@@ -80,11 +79,11 @@ function compartirResultado() {
   var resultado = $('#resultado').val();
 
   var mensaje = "Precio de producto: " + precio.toFixed(2) + "\n" +
-      "Peso en Lb: " + peso.toFixed(2) + "\n" +
-      "Tasa USD: " + tasa.toFixed(2) + "\n" +
-      "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(2) + "\n" +
-      "Precio por libras: " + precioporlibras.toFixed(2) + "\n" +
-      "Resultado: " + resultado;
+    "Peso en Lb: " + peso.toFixed(2) + "\n" +
+    "Tasa USD: " + tasa.toFixed(2) + "\n" +
+    "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(2) + "\n" +
+    "Precio por libras: " + precioporlibras.toFixed(2) + "\n" +
+    "Resultado: " + resultado;
 
   if (navigator.share) {
     navigator.share({

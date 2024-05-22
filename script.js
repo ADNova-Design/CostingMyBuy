@@ -67,54 +67,6 @@ $(document).ready(function() {
   $('#precio, #tasa').on('input', function() {
     calcularPrecio(nuevoPorcentaje);
   });
-
-  
-
-  $(document).ready(function() {
-    var frase1 = "Encargos"; // Frase 1 para mostrar
-    var frase2 = "Libras"; // Frase 2 para mostrar
-  
-    var frases = [frase1, frase2]; // Array de frases
-    var indiceActual = 0;
-  
-    function maquinaEscribir(elemento, texto, velocidad) {
-      var i = 0;
-      var intervalo = setInterval(function() {
-        elemento.text(texto.slice(0, i));
-        i++;
-        if (i > texto.length) {
-          clearInterval(intervalo);
-          setTimeout(function() {
-            borrarTexto(elemento);
-          }, 10000); // Esperar 2 segundos antes de borrar el texto
-        }
-      }, velocidad);
-    }
-  
-    function borrarTexto(elemento) {
-      var textoActual = elemento.text();
-      var longitudTexto = textoActual.length;
-      var intervalo = setInterval(function() {
-        elemento.text(textoActual.slice(0, longitudTexto));
-        longitudTexto--;
-        if (longitudTexto === 0) {
-          clearInterval(intervalo);
-          setTimeout(function() {
-            mostrarSiguienteFrase(elemento);
-          }, 1000); // Esperar 1 segundo antes de mostrar la siguiente frase
-        }
-      }, 50);
-    }
-  
-    function mostrarSiguienteFrase(elemento) {
-      var siguienteFrase = frases[indiceActual];
-      maquinaEscribir(elemento, siguienteFrase, 100);
-      indiceActual = (indiceActual + 1) % frases.length; // Obtener el siguiente índice
-    }
-  
-    var encargos = $(".encargos");
-    maquinaEscribir(encargos, frase1, 100); // Mostrar la primera frase inicialmente
-  });
   
 
 // Función para compartir el resultado
@@ -124,13 +76,15 @@ function compartirResultado() {
   var tasa = parseFloat($('#tasa').val());
 
   var porcentajeSobreCompra = nuevoPorcentaje * 100;
+  var precioporlibras = precio * nuevoPrecioLibras;
   var resultado = $('#resultado').val();
 
   var mensaje = "Precio de producto: " + precio.toFixed(2) + "\n" +
-  "Peso en Lb: " + peso.toFixed(2) + "\n" +
-  "Tasa USD: " + tasa.toFixed(2) + "\n" +
-  "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(2) + "\n" +
-  "Resultado: " + resultado;
+      "Peso en Lb: " + peso.toFixed(2) + "\n" +
+      "Tasa USD: " + tasa.toFixed(2) + "\n" +
+      "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(2) + "\n" +
+      "Precio por libras: " + precioporlibras.toFixed(2) + "\n" +
+      "Resultado: " + resultado;
 
   if (navigator.share) {
     navigator.share({
@@ -142,6 +96,53 @@ function compartirResultado() {
     alert("Lo siento, la función de compartir no es compatible con tu dispositivo o navegador.");
   }
 }
+
+
+$(document).ready(function() {
+  var frase1 = "Encargos"; // Frase 1 para mostrar
+  var frase2 = "Libras"; // Frase 2 para mostrar
+
+  var frases = [frase1, frase2]; // Array de frases
+  var indiceActual = 0;
+
+  function maquinaEscribir(elemento, texto, velocidad) {
+    var i = 0;
+    var intervalo = setInterval(function() {
+      elemento.text(texto.slice(0, i));
+      i++;
+      if (i > texto.length) {
+        clearInterval(intervalo);
+        setTimeout(function() {
+          borrarTexto(elemento);
+        }, 10000); // Esperar 2 segundos antes de borrar el texto
+      }
+    }, velocidad);
+  }
+
+  function borrarTexto(elemento) {
+    var textoActual = elemento.text();
+    var longitudTexto = textoActual.length;
+    var intervalo = setInterval(function() {
+      elemento.text(textoActual.slice(0, longitudTexto));
+      longitudTexto--;
+      if (longitudTexto === 0) {
+        clearInterval(intervalo);
+        setTimeout(function() {
+          mostrarSiguienteFrase(elemento);
+        }, 1000); // Esperar 1 segundo antes de mostrar la siguiente frase
+      }
+    }, 50);
+  }
+
+  function mostrarSiguienteFrase(elemento) {
+    var siguienteFrase = frases[indiceActual];
+    maquinaEscribir(elemento, siguienteFrase, 100);
+    indiceActual = (indiceActual + 1) % frases.length; // Obtener el siguiente índice
+  }
+
+  var encargos = $(".encargos");
+  maquinaEscribir(encargos, frase1, 100); // Mostrar la primera frase inicialmente
+});
 
 // Agregar evento al botón de compartir
 $('#btn-compartir').click(function() {

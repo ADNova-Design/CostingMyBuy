@@ -1,118 +1,79 @@
-$(document).ready(function() {
-  var nuevoPorcentaje = parseFloat(localStorage.getItem('porcentaje')) || 0.15; // Porcentaje por defecto (15%)
-  var nuevoPrecioLibras = parseFloat(localStorage.getItem('precioLibras')) || 5; // Precio de libras por defecto (5)
+function preencher(numero) {
+  var campoPrecio = document.getElementById("precio");
+  var campoTasa = document.getElementById("tasa");
+  var campoComision = document.getElementById("comision");
 
-  $('nav ul li > a:not(:only-child)').click(function(e) {
-    $(this).siblings('.nav-submenu').toggle();
-    $('.nav-submenu').not($(this).siblings()).hide();
-    e.stopPropagation();
-  });
-
-  $('html').click(function() {
-    $('.nav-submenu').hide();
-  });
-
-  $('#nav-boton').click(function() {
-    $('nav ul').toggle();
-    $('#nav-boton').toggleClass("activo");
-  });
-
-  $('#ajustes-porciento').click(function() {
-    var nuevoPorcentajeInput = prompt("Ingrese el nuevo porcentaje del precio:");
-    if (nuevoPorcentajeInput !== null) {
-      nuevoPorcentaje = parseFloat(nuevoPorcentajeInput) / 100;
-      if (!isNaN(nuevoPorcentaje)) {
-        $('#precio').val('');
-        $('#tasa').val('');
-        calcularPrecio(nuevoPorcentaje);
-        guardarAjustes();
-      } else {
-        alert("Ingrese un valor numérico válido.");
-      }
-    }
-  });
-
-  $('#ajustes-precio-libras').click(function() {
-    var nuevoPrecioLibrasInput = prompt("Ingrese el nuevo precio de las libras:");
-    if (nuevoPrecioLibrasInput !== null) {
-      nuevoPrecioLibras = parseFloat(nuevoPrecioLibrasInput);
-      if (!isNaN(nuevoPrecioLibras)) {
-        $('#precio').val('');
-        $('#tasa').val('');
-        actualizarPrecioLibras(nuevoPrecioLibras);
-        guardarAjustes();
-      } else {
-        alert("Ingrese un valor numérico válido.");
-      }
-    }
-  });
-
-  function actualizarPrecioLibras(nuevoPrecioLibras) {
-    $('#precio-libras').val(nuevoPrecioLibras);
+  if (campoPrecio === document.activeElement) {
+    campoPrecio.value += numero;
+    campoTasa.value = "";
+    campoComision.value = "";
+  } else if (campoTasa === document.activeElement) {
+    campoTasa.value += numero;
+    campoPrecio.value = "";
+    campoComision.value = "";
+  } else if (campoComision === document.activeElement) {
+    campoComision.value += numero;
+    campoPrecio.value = "";
+    campoTasa.value = "";
+    calcular();
   }
+}
 
-  function calcularPrecio(porcentaje) {
-    var precio = parseFloat(document.getElementById("precio").value);
-    var tasa = parseFloat(document.getElementById("tasa").value);
+function calcular() {
+  var campoPrecio = document.getElementById("precio");
+  var campoTasa = document.getElementById("tasa");
+  var campoResultado = document.getElementById("resultado");
+  var campoComision = document.getElementById("comision");
 
-    if (isNaN(precio) || isNaN(tasa)) {
-      document.getElementById("resultado").value = "...";
-    } else {
-      var precioEntraga = ((precio * porcentaje) + precio) * tasa;
-      document.getElementById("resultado").value = precioEntraga.toFixed(2);
-    }
+  var precio = parseFloat(campoPrecio.value);
+  var tasa = parseFloat(campoTasa.value);
+  var comision = parseFloat(campoComision.value);
+
+  if (!isNaN(precio) && !isNaN(tasa) && !isNaN(comision)) {
+    var resultado = (precio * (comision / 100) + precio) * tasa;
+    campoResultado.value = resultado.toFixed(2);
+  } else {
+    campoResultado.value = "";
   }
+}
 
-  // Agregar evento de cambio en los campos de precio y tasa para calcular automáticamente
-  $('#precio, #tasa').on('input', function() {
-    calcularPrecio(nuevoPorcentaje);
-  });
 
-  // Función para compartir el resultado
-  function compartirResultado() {
-    var precio = parseFloat($('#precio').val());
-    var peso = parseFloat($('#peso').val());
-    var tasa = parseFloat($('#tasa').val());
+// Función para compartir el resultado
+function compartirResultado() {
+  var precio = parseFloat($('#precio').val());
+  var tasa = parseFloat($('#tasa').val());
+  var comision = parseFloat($('#comision').val());
+  var resultado = $('#resultado').val();
 
-    var porcentajeSobreCompra = nuevoPorcentaje * 100; // Convertir a porcentaje
+  var mensaje = "Valor del Encargo\n\n" +
+    "Precio de producto: " + precio.toFixed(2) + " USD\n" +
+    "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
+    "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
+    "Resultado: " + resultado + " CUP\n\n" +
+    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";
 
-    // Verificar si el nuevoPrecioLibras está definido y es mayor que cero
-    var nuevoPrecioLibras = parseFloat($('#precio-libras').val());
-    if (isNaN(nuevoPrecioLibras) || nuevoPrecioLibras <= 0) {
-      nuevoPrecioLibras = 5; // Establecer un precio por libra predeterminado de 5
-    }
-
-    var precioporlibras = nuevoPrecioLibras;
-    var resultado = $('#resultado').val();
-
-    var mensaje = "Valor del Encargo\n\n" +
-  "Precio de producto: " + precio.toFixed(2) + " USD\n" +
-  "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
-  "Porcentaje sobre compra: " + porcentajeSobreCompra.toFixed(0) + "%\n\n" +
-  "Resultado: " + resultado + " CUP\n\n" +
-  "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";
-
-    if (navigator.share) {
-      navigator.share({
-        text: mensaje
-      })
-        .then(() => console.log('Contenido compartido exitosamente.'))
-        .catch((error) => console.log('Error al compartir:', error));
-    } else {
-      alert("Lo siento, la función de compartir no es compatible con tu dispositivo o navegador.");
-    }
+  if (navigator.share) {
+    navigator.share({
+      text: mensaje
+    })
+      .then(() => console.log('Contenido compartido exitosamente.'))
+      .catch((error) => console.log('Error al compartir:', error));
+  } else {
+    alert("Lo siento, la función de compartir no es compatible con tu dispositivo o navegador.");
   }
+}
 
-  // Llamar a la función compartirResultado al hacer clic en el botón de compartir
-  $('#compartir-btn').click(function() {
-    compartirResultado();
-  });
+// Llamar a la función compartirResultado al hacer clic en el botón de compartir
+$('#btn-compartir').click(function() {
+  compartirResultado();
+});
 
 $(document).ready(function() {
   var frase1 = "Encargos"; // Frase 1 para mostrar
-  var frase2 = "Libras"; // Frase 2 para mostrar
+  var frase2 = "Compras"; // Frase 2 para mostrar
+  var frase3 = "Inversiones"; // Frase 3 para mostrar
 
-  var frases = [frase1, frase2]; // Array de frases
+  var frases = [frase1, frase2, frase3]; // Array de frases
   var indiceActual = 0;
 
   function maquinaEscribir(elemento, texto, velocidad) {
@@ -161,7 +122,22 @@ $('#btn-compartir').click(function() {
 
 // Función para guardar los ajustes en el almacenamiento local
 function guardarAjustes() {
-    localStorage.setItem('porcentaje', nuevoPorcentaje);
-    localStorage.setItem('precioLibras', nuevoPrecioLibras);
+  localStorage.setItem('porcentajeSobreCompra', porcentajeSobreCompra);
+  localStorage.setItem('nuevoPrecioLibras', nuevoPrecioLibras);
+}
+
+// Función para cargar los ajustes desde el almacenamiento local
+function cargarAjustes() {
+  var porcentajeSobreCompra = localStorage.getItem('porcentajeSobreCompra');
+  var nuevoPrecioLibras = localStorage.getItem('nuevoPrecioLibras');
+
+  if (porcentajeSobreCompra && nuevoPrecioLibras) {
+    $('#tasa').val(porcentajeSobreCompra);
+    $('#precio-libras').val(nuevoPrecioLibras);
   }
+}
+
+// Llamar a la función cargarAjustes al cargar la página
+$(document).ready(function() {
+  cargarAjustes();
 });

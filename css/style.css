@@ -1,598 +1,97 @@
+body {
+  margin: 0px;
+  padding: 0px;
 
-  body {
-    font-family: 'Open Sans', sans-serif;
-  }
-
-
-     switch-btn {
-      margin-top: 100px;
-     }
-
-    .switch {
-      position: absolute;
-      margin: -1%;
-      width: 60px;
-      height: 34px;
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
-
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-
-    input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
-    }
-
-    /* Rounded sliders */
-    .slider.round {
-      border-radius: 34px;
-    }
-
-    .slider.round:before {
-      border-radius: 50%;
-    }
-
-    .btn-compartir {
-      width: 60px;
-      height: 60px;
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      padding: 10px;
-      background-color: #fff;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      opacity: 0.1;
-      z-index: 9999; /* Aseguramos que el botón esté por encima de otros elementos */
-    }
-    
-    .btn-compartir:hover {
-      opacity: 1.0; /* Restauramos la opacidad al pasar el cursor sobre el botón */
-    }
-    
-    .icono-compartir img {
-      width: 40px; /* Tamaño del ícono */
-      height: 40px;
-      object-fit: contain;
-    }
-    
-    h1 {       
-      font-size: 35px;
-      }
-
-      #titulo .encargos {
-        font-family: 'Dancing Script', cursive;
-        font-style: italic;
-      }
-
-      #titulo {
-        font-family: 'Open Sans', sans-serif;
-        position: relative;
-        top: 15%;
-        left: 25%;
-        transform: translate(-50%, -50%);
-        background: linear-gradient(-45deg, #f5077e, #9707aa, #0619c7);
-        background-size: 200%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: cambioColores 15s infinite;
-      }
-      
-      @keyframes cambioColores {
-        0% {
-          background-position: 0%;
-        }
-        50% {
-          background-position: 100%;
-        }
-        100% {
-          background-position: 0%;
-        }
-      }
-
-  nav {
-    float: left;
-    width: 100%;
-    background-color: #001628;
-  }
-  
-  .nav-menu {
-    display: block;
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background: #001628;
-  }
-
-
-  .logo {
-    top: 10px;
-    left: 10px;
-    padding: 10px;
-    width: 20%; 
-    }
-      
-.logo .img_logo {
-width: 20%; 
-}
-  
-  nav ul li {
-    left: 28%;
-    float: left;
-    position: relative;
-  }
-  
-  nav ul{
-    display: block;
-    padding: 0 20px;
-    line-height: 70px;
-    color: #747474;
-    text-decoration: none;
-  }
-
-  nav li{
-    display: block;
-    padding: 0 20px;
-    line-height: 70px;
-    color: #747474;
-    text-decoration: none;
-  }
-  
-  nav a{
-    display: block;
-    padding: 0 20px;
-    line-height: 70px;
-    color: #747474;
-    text-decoration: none;
-  }
-
-
-  
-  nav .logo:hover {
-    background-color: unset;
-    color: #000000;
-  }
-
-
-  nav ul li a:not(:only-child):after {
-    padding-left: 5px;
-    content: ' ▾';
-  }
-
-  .nav-submenu {
-    justify-items: left;
-    position: absolute;
-    z-index: 1;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    width: 350px;
-    display: none;
-}
-  
-  .nav-submenu li {
-    justify-items: left;
-    width: 100%;
-    white-space: nowrap;
-  }
-  
-  .nav-movil {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: #001628;;
-    height: 70px;
-    width: 100%;
-  }
-  
-  @media screen and (max-width: 979px) {
-    .nav-movil {
-      display: block;
-    }
-  
-    .nav-menu {
-      display: none;
-      margin-top: 70px;
-    }
-
-    nav li {
-      display: block;
-      padding: 0;
-      line-height: 70px;
-      color: #747474;
-      text-decoration: none;
-  }
-    
-  nav ul li {
-    left: 0;
-    float: left;
-    position: relative;
-  }
-  
-    .nav-menu li {
-      float: none;
-    }
-    .nav-menu li a {
-      padding: 20px;
-      line-height: 20px;
-    }
-    .nav-menu li ul li a {
-      padding-left: 30px;
-    }
-  
-    .nav-submenu {
-      position: static;
-    }
-
-    
-  .logo {
-    top: 10px;
-    left: 10px;
-    padding: 10px;
-    width: 20%; 
-    }
-
-    .logo .img_logo {
-      width: 50%; 
-    }
-  }
-  
-  @media screen and (min-width: 980px) {
-    .nav-menu {
-      display: block !important;
-    }
-
-    
-  .logo {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    padding: 10px;
-    width: 20%; 
-    }
-      
-    .logo .img_logo {
-      width: 20%; 
-    }
-   
-  
-    .container {
-      margin-top: 50%;
-      margin-left: 30%;
-      padding: 25px;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-  
-  #nav-boton {
-    position: absolute;
-    left: 20px;
-    top: 25px;
-    cursor: pointer;
-    width: 20px;
-    height: 10px;
-    padding: 5px 15px 15px 0px;
-    z-index: 1;
-  }
-  
-  #nav-boton span,
-  #nav-boton span:after,
-  #nav-boton span:before {
-    transition: all 500ms ease-in-out;
-    border-radius: 1px;
-    height: 5px;
-    width: 40px;
-    position: absolute;
-    display: block;
-    content: "";
-    background: #fff;
-  }
-  
-  #nav-boton span:before {
-    top: -10px;
-  }
-  #nav-boton span:after {
-    bottom: -10px;
-  }
-  
-  #nav-boton.activo span {
-    background-color: transparent;
-  }
-  
-  #nav-boton.activo span:before,
-  #nav-boton.activo span:after {
-    top: 0;
-  }
-  
-  #nav-boton.activo span:after {
-    transform: rotate(-45deg);
-  }
-  
-  #nav-boton.activo span:before {
-    transform: rotate(45deg);
-  }
-
-  .container {
-    width: 530px;   
-    padding: 15px; 
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  font-family: sans-serif;
 }
 
-h1 {
-  margin-top: 25%;
-  margin-bottom: 20px;
-}
-
-  .input-group {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .input-group label {
-    flex: 0 0 40%;
-    text-align: right;
-    margin-right: 10px;
-  }
-  
-  .input-group input {
-    flex: 1;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .result {
-    margin-top: 20px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .result label {
-    text-align: center;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .result input {
-    width: 65px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: center;
-  }
-
-  footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #f2f2f2;
-  padding: 20px;
+#calculadora {
+  width: 340px;
+  height: 570px;  
+  margin: 0 auto;
+  top: 20px;
+  border-radius: 5px;
+  position: relative;
   text-align: center;
 }
 
-.promo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#title {
+  text-align: center;
+  padding-top: 10px;
 }
 
-.promo-container img {
-  max-width: 200px;
-  height: auto;
-  margin-right: 10px;
+#resultado {
+  height: 120px;
 }
 
-.promo-container p {
-  font-weight: bold;
+
+
+.vsaida {
+  text-align: right;
+  border: solid 2px;
+  height: 60px;
+  width: 275px;
+  margin: 10px 20px;
+  font-size: 25px;
+  outline: none;
+  border: solid 1px;
+  border-radius: 10px;
 }
-  
-  @media (max-width: 891px) {
-    .container {
-      width: 400px;
-      margin-top: 10%;
-      margin-left: 25%;
-      padding: 20px;
-    }
-  }
-  
-  
-  @media (max-width: 691px) {
-    .container {
-      width: 450px;
-      margin-top: 30%;
-      margin-left: 15%;
-      padding: 20px;
-    }
-  }
-  
-  @media (max-width: 591px) {
-   .btn-compartir {
-      width: 60px;
-      height: 60px;
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      padding: 10px;
-      background-color: #fff;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      opacity: 0.1;
-      z-index: 9999; /* Aseguramos que el botón esté por encima de otros elementos */
-    }
-    
-    .btn-compartir:hover {
-      opacity: 1; /* Restauramos la opacidad al pasar el cursor sobre el botón */
-    }
-    
-    .icono-compartir img {
-      width: 40px; /* Tamaño del ícono */
-      height: 40px;
-      object-fit: contain;
-    }
 
-      .input-group .input .peso{
-        width: 50%;
 
-      }
+h1 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
 
-    .container {
-      justify-content: center;
-      width: 270px;
-      height: 450px;
-      margin-left: 8%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-    }
-    
-    h1 {       
-        font-size: 35px;
-        }
+#titulo .encargos {
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+}
 
-        #titulo .encargos {
-          font-family: 'Dancing Script', cursive;
-          font-style: italic;
-        }
+#titulo {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(-45deg, #f5077e, #9707aa, #0619c7);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cambioColores 15s infinite;
+}
 
-        #titulo {
-          font-family: 'Open Sans', sans-serif;
-          position: relative;
-          top: 10%;
-          left: 35%;
-          transform: translate(-50%, -50%);
-          background: linear-gradient(-45deg, #f5077e, #9707aa, #0619c7);
-          background-size: 200%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: cambioColores 15s infinite;
-        }
-        
-        @keyframes cambioColores {
-          0% {
-            background-position: 0%;
-          }
-          50% {
-            background-position: 100%;
-          }
-          100% {
-            background-position: 0%;
-          }
-        }
-  
-  .input-group {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+@keyframes cambioColores {
+  0% {
+    background-position: 0%;
   }
-  
-  .input-group label {
-    flex: 0 0 40%;
-    text-align: right;
-    margin-right: 10px;
-    font-size: 25px;
+  50% {
+    background-position: 100%;
   }
+  100% {
+    background-position: 0%;
+  }
+}
 
-  
-  .input-group input {
-    flex: 1;
-    width: 10px;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 20px;
-  }
 
-  button {
-    margin-top: 40px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    font-size: 25px;
-  }
-  
-  .result {
-    margin-top: 30px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .result label {
-    font-size: 25px;
-    text-align: center;
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .result input {
-    width: 100px;
-    text-align: center;
-    flex: 1;
-    width: 100px;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 20px;
-  }
+.btn-compartir {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.1;
+  z-index: 9999; /* Aseguramos que el botón esté por encima de otros elementos */
+}
 
-  }
+.btn-compartir:hover {
+  opacity: 1.0; /* Restauramos la opacidad al pasar el cursor sobre el botón */
+}
+
+.icono-compartir img {
+  width: 40px; /* Tamaño del ícono */
+  height: 40px;
+  object-fit: contain;
+}

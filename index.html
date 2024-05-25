@@ -1,55 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
-
   <link rel="icon" href="img/logo.png" type="imagenes/logo.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
-  <title>Costing My Buy</title>
-
+  <title>Costing My Buy</title>  
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="css/style.css"/>
-
 </head>
-<body>
-  <section class="navigation">
-    <nav>
-      <div class="nav-movil">
-        <a id="nav-boton" href="#!">
-          <span></span>
-        </a>
-      </div>
-      <ul class="nav-menu">
-        <li>
-          <a href="#">Ajustes</a>
-          <ul class="nav-submenu">
-            <li><a id="ajustes-porciento" href="#">Comisión sobre precio</a></li>
-            <li><a id="ajustes-precio-libras" href="#">Precio por libras</a></li>
-          </ul>  
-        </li>      
-        <li></li>
 
-        <li>
-          <a href="#">Información</a>
-          <ul class="nav-submenu">
-            <li><a href="https://www.cubatramite.com/listado-para-la-determinacion-del-caracter-comercial-y-valoracion-en-aduana-de-cuba/" target="_blank" rel="noopener noreferrer">Aranceles</a></li>
-            <li><a href="https://d-cuba.com/aduana-de-cuba" target="_blank" rel="noopener noreferrer">Regulaciones Aduanales</a></li>
-          </ul>
-        </li>
-        <li><a href="https://wa.me/5359072053" target="_blank" rel="noopener noreferrer">Contacto</a></li>
-        <li><a class="logo" href="https://adnova-design.github.io/ADNova/index.html#inicio" target="_blank" rel="noopener noreferrer">
-            <img class="img_logo"src="https://adnova-design.github.io/ADNova/imagenes/logo.png" alt="Logo">
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </section>
+<body>
+  <div id="calculadora">
+    <form name="form">
+
+      <h1 id="titulo">Calculadora <br>de <span class="encargos">Encargos</span></h1>
+
+      <input type="text" class="vsaida" id="precio" name="precio" oninput="calcular()" placeholder="Precio del producto">
+      <input type="text" class="vsaida" id="tasa" name="tasa" oninput="calcular()" placeholder="Tasa del USD">
+      <input type="text" class="vsaida" id="resultado" name="resultado" placeholder="Resultado" readonly>
+      
+      <label for="comision">Comisión por la compra:</label>
+      <input type="text" class="vsaida" id="comision" name="comision" oninput="calcular()" placeholder="Comisión en %" value="15">
+
+    </form>
+  </div>
 
   <button id="btn-compartir" class="btn-compartir">
     <span class="icono-compartir">
@@ -57,27 +36,8 @@
     </span>
   </button>
 
-
-  <div class="container">
-    <h1 id="titulo">Calculadora <br>de <span class="encargos">Encargos</span></h1>
-
-    <form>
-      <div class="input-group">
-        <label for="precio">Precio del producto:</label>
-        <input type="number" id="precio" step="0.01" required>
-      </div>
-      <div class="input-group">
-        <label for="tasa">Tasa del USD:</label>
-        <input type="number" id="tasa" step="0.01" required>
-      </div>    
-      <div class="result">
-        <label for="resultado">Resultado en CUP:</label>
-        <input type="text" id="resultado" readonly>
-      </div>
-      <p>Defina en los ajustes la comisión sobre la compra y el precio sobre las libras.</p></br>
-    </form>
-  </div>
+  <script type="text/javascript" src="js/script.js"></script>
 
 </body>
-<script src="js/script.js"></script>
+
 </html>

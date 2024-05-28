@@ -1,0 +1,93 @@
+body {
+  margin: 0px;
+  padding: 0px;
+
+  font-family: sans-serif;
+}
+
+#calculadora {
+  width: 340px;
+  height: 570px;  
+  margin: 0 auto;
+  top: 20px;
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+  padding-top: 10px;
+}
+
+#resultado {
+  height: 120px;
+}
+
+.vsaida {
+  text-align: right;
+  border: solid 2px;
+  height: 60px;
+  width: 275px;
+  margin: 10px 20px;
+  font-size: 25px;
+  outline: none;
+  border: solid 1px;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+#titulo .encargos {
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+}
+
+#titulo {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(-45deg, #f5077e, #9707aa, #0619c7);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cambioColores 15s infinite;
+}
+
+@keyframes cambioColores {
+  0% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+
+.btn-compartir {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.1;
+  z-index: 9999; /* Aseguramos que el botón esté por encima de otros elementos */
+}
+
+.btn-compartir:hover {
+  opacity: 1.0; /* Restauramos la opacidad al pasar el cursor sobre el botón */
+}
+
+.icono-compartir img {
+  width: 40px; /* Tamaño del ícono */
+  height: 40px;
+  object-fit: contain;
+}

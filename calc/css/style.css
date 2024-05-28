@@ -6,12 +6,12 @@ body {
 }
 
 #calculadora {
-  width: 340px;
-  height: 570px;  
+  /* width: 340px; */
+  height: 570px;
   margin: 0 auto;
   top: 20px;
-  border-radius: 5px;
-  position: relative;
+  /* border-radius: 5px; */
+  /* position: relative; */
   text-align: center;
 }
 

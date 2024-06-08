@@ -43,12 +43,12 @@ function compartirResultado() {
   var comision = parseFloat($('#comision').val());
   var resultado = $('#resultado').val();
 
-  var mensaje = "Valor del Encargo\n\n" +
+  var mensaje = "Valor del Encargo:" + obtenerFechaHoraActual() + "\n" +
     "Precio de producto: " + precio.toFixed(2) + " USD\n" +
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
     "Resultado: " + resultado + " CUP\n\n" +
-    
+
     "Fecha y hora: " + obtenerFechaHoraActual() + "\n" +
     "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";
 
@@ -72,7 +72,7 @@ function obtenerFechaHoraActual() {
   var anio = fechaHora.getFullYear().toString();
   var hora = fechaHora.getHours().toString().padStart(2, '0');
   var minutos = fechaHora.getMinutes().toString().padStart(2, '0');
-  var ampm = fechaHora.getHours() >= 12 ? 'pm' : 'am';
+  var ampm = fechaHora.getHours() >= 12 ? '' : '';
 
   return dia + mes + anio + hora + minutos + ampm;
 }

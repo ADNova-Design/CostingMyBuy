@@ -36,6 +36,7 @@ function calcular() {
     campoResultado.value = "";
   }
 }
+
 // Función para compartir el resultado
 function compartirResultado() {
   var precio = parseFloat($('#precio').val());
@@ -48,10 +49,8 @@ function compartirResultado() {
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
     "RESULTADO: " + resultado + " CUP\n\n" +
-
-    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";+"\n\n" +
-     obtenerFechaHoraActual()
-
+    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/" + "\n\n" +
+    obtenerFechaHoraActual();
 
   if (navigator.share) {
     navigator.share({
@@ -73,7 +72,7 @@ function obtenerFechaHoraActual() {
   var anio = fechaHora.getFullYear().toString();
   var hora = fechaHora.getHours().toString().padStart(2, '0');
   var minutos = fechaHora.getMinutes().toString().padStart(2, '0');
-  var ampm = fechaHora.getHours() >= 12 ? '' : '';
+  var ampm = fechaHora.getHours() >= 12 ? 'pm' : 'am';
 
   return dia + mes + anio + hora + minutos + ampm;
 }

@@ -45,11 +45,13 @@ function compartirResultado() {
   var resultado = $('#resultado').val();
 
   var mensaje = "Valor del Encargo\n\n" +
-    "Fecha y hora: " + obtenerFechaHoraActual() + "\n" +
+    
     "Precio de producto: " + precio.toFixed(2) + " USD\n" +
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
     "Resultado: " + resultado + " CUP\n\n" +
+    
+    + obtenerFechaHoraActual() + "\n" +
     "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";
 
   if (navigator.share) {

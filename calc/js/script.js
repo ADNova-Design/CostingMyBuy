@@ -48,6 +48,7 @@ function compartirResultado() {
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
     "Resultado: " + resultado + " CUP\n\n" +
+    
     "Fecha y hora: " + obtenerFechaHoraActual() + "\n" +
     "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";
 

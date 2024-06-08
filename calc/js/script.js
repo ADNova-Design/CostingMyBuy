@@ -37,7 +37,6 @@ function calcular() {
   }
 }
 
-
 // Función para compartir el resultado
 function compartirResultado() {
   var precio = parseFloat($('#precio').val());
@@ -46,6 +45,7 @@ function compartirResultado() {
   var resultado = $('#resultado').val();
 
   var mensaje = "Valor del Encargo\n\n" +
+    "Fecha y hora: " + obtenerFechaHoraActual() + "\n" +
     "Precio de producto: " + precio.toFixed(2) + " USD\n" +
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
@@ -61,6 +61,18 @@ function compartirResultado() {
   } else {
     alert("Lo siento, la función de compartir no es compatible con tu dispositivo o navegador.");
   }
+}
+
+// Función para obtener la fecha y hora actual en formato legible
+function obtenerFechaHoraActual() {
+  var fechaHora = new Date();
+  var opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
+  var opcionesHora = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+
+  var fechaFormateada = fechaHora.toLocaleDateString(undefined, opcionesFecha);
+  var horaFormateada = fechaHora.toLocaleTimeString(undefined, opcionesHora);
+
+  return fechaFormateada + " a las " + horaFormateada;
 }
 
 // Llamar a la función compartirResultado al hacer clic en el botón de compartir

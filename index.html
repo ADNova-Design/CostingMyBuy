@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 
+  <link rel="manifest" href="manifest.json">
+  
   <title>Costing My Buy</title>  
   <link href="calc/css/style.css" rel="stylesheet" type="text/css" media="all" />
   <link href="style.css" rel="stylesheet" type="text/css" media="all" />
@@ -37,14 +39,16 @@
             <label for="comision">Comisión por la compra:</label>
             <input type="text" class="vsaida" id="comision" name="comision" oninput="calcular()" placeholder="Comisión en %" value="15">
 
+            <button id="btn-compartir" class="btn-compartir">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+              </svg>
+            </button>
+
           </form>
         </div>
       
-        <button id="btn-compartir" class="btn-compartir">
-          <span class="icono-compartir">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25702.png" alt="Botón Compartir" width="40" height="40">
-          </span>
-        </button>
+       
         <script type="text/javascript" src="calc/js/script.js"></script>
       </div>
 

@@ -6,7 +6,7 @@ body {
 }
 
 #calculadora {
-    /* width: 340px; */
+    width: 340px;
     height: 570px;
     margin: 0 auto;
     top: 20px;
@@ -68,24 +68,16 @@ h1 {
 }
 
 .btn-compartir {
-  background: fixed;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
+  background: none;
   border: none;
-  border-radius: 50%;
+  padding: 10%;
+  margin-bottom: 10%;
   cursor: pointer;
-  z-index: 9999; /* Aseguramos que el botón esté por encima de otros elementos */
+  outline: none;
 }
 
-.icono-compartir img:hover {
-  opacity: 1.0; /* Restauramos la opacidad al pasar el cursor sobre el botón */
-}
-
-.icono-compartir img {
-  width: 30px; /* Tamaño del ícono */
-  height: 30px;
-  object-fit: contain;
-  opacity: 0.3;
+.svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
 }

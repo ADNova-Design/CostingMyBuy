@@ -36,7 +36,6 @@ function calcular() {
     campoResultado.value = "";
   }
 }
-
 // Función para compartir el resultado
 function compartirResultado() {
   var precio = parseFloat($('#precio').val());
@@ -45,13 +44,11 @@ function compartirResultado() {
   var resultado = $('#resultado').val();
 
   var mensaje = "Valor del Encargo\n\n" +
-    
     "Precio de producto: " + precio.toFixed(2) + " USD\n" +
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
     "Resultado: " + resultado + " CUP\n\n" +
-    
-    + obtenerFechaHoraActual() + "\n" +
+    "Fecha y hora: " + obtenerFechaHoraActual() + "\n" +
     "Compartido desde: https://adnova-design.github.io/CostingMyBuy/";
 
   if (navigator.share) {
@@ -65,16 +62,18 @@ function compartirResultado() {
   }
 }
 
-// Función para obtener la fecha y hora actual en formato legible
+// Función para obtener la fecha y hora actual en formato de código
 function obtenerFechaHoraActual() {
   var fechaHora = new Date();
-  var opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
-  var opcionesHora = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
 
-  var fechaFormateada = fechaHora.toLocaleDateString(undefined, opcionesFecha);
-  var horaFormateada = fechaHora.toLocaleTimeString(undefined, opcionesHora);
+  var dia = fechaHora.getDate().toString().padStart(2, '0');
+  var mes = (fechaHora.getMonth() + 1).toString().padStart(2, '0');
+  var anio = fechaHora.getFullYear().toString();
+  var hora = fechaHora.getHours().toString().padStart(2, '0');
+  var minutos = fechaHora.getMinutes().toString().padStart(2, '0');
+  var ampm = fechaHora.getHours() >= 12 ? 'pm' : 'am';
 
-  return fechaFormateada + " a las " + horaFormateada;
+  return dia + mes + anio + hora + minutos + ampm;
 }
 
 // Llamar a la función compartirResultado al hacer clic en el botón de compartir

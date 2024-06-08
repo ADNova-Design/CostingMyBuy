@@ -72,7 +72,7 @@ function obtenerFechaHoraActual() {
   var anio = fechaHora.getFullYear().toString();
   var hora = fechaHora.getHours().toString().padStart(2, '0');
   var minutos = fechaHora.getMinutes().toString().padStart(2, '0');
-  var ampm = fechaHora.getHours() >= 12 ? 'pm' : 'am';
+  var ampm = fechaHora.getHours() >= 12 ? '' : '';
 
   return dia + mes + anio + hora + minutos + ampm;
 }

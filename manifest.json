@@ -1,6 +1,6 @@
 {
-    "name": "Costing My Boy",
-    "short_name": "CostingMyBuy",
+    "name": "Costing My Buy",
+    "short_name": "Costing My Buy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",

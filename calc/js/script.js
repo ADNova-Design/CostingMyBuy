@@ -43,6 +43,7 @@ function compartirResultado() {
   var tasa = parseFloat($('#tasa').val());
   var comision = parseFloat($('#comision').val());
   var resultado = $('#resultado').val();
+  var código = $('#codigo').val();
 
   var mensaje = "Factura del Pedido" + "\n\n" +
     "Precio de producto: " + precio.toFixed(2) + " USD\n" +

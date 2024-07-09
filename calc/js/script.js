@@ -46,7 +46,7 @@ function compartirResultado() {
   var código = $('#codigo').val();
 
   var mensaje = "Factura del Pedido" + "\n\n" +
-    "Precio de producto: " + precio.toFixed(2) + " USD\n" +
+    "Precio del carrito: " + precio.toFixed(2) + " USD\n" +
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
     "RESULTADO: " + resultado + " CUP\n\n" +

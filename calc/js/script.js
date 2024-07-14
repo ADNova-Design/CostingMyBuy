@@ -39,19 +39,29 @@ function calcular() {
 
 // Función para compartir el resultado
 function compartirResultado() {
-  var precio = parseFloat($('#precio').val());
-  var tasa = parseFloat($('#tasa').val());
-  var comision = parseFloat($('#comision').val());
-  var resultado = $('#resultado').val();
-  var código = $('#codigo').val();
+  var campoPrecio = document.getElementById("precio");
+  var campoTasa = document.getElementById("tasa");
+  var campoComision = document.getElementById("comision");
+  var campoResultado = document.getElementById("resultado");
+
+  var precio = parseFloat(campoPrecio.value);
+  var tasa = parseFloat(campoTasa.value);
+  var comision = parseFloat(campoComision.value);
+  var resultado = campoResultado.value;
 
   var mensaje = "Factura del Pedido" + "\n\n" +
     "Precio del carrito: " + precio.toFixed(2) + " USD\n" +
     "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
     "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
     "TOTAL: " + resultado + " CUP\n\n" +
-    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/" + "\n\n" + 
+    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/" + "\n\n" +
     "Código: " + obtenerFechaHoraActual() + "\n";
+
+  // Store form values in local storage
+  localStorage.setItem("precio", precio);
+  localStorage.setItem("tasa", tasa);
+  localStorage.setItem("comision", comision);
+  localStorage.setItem("resultado", resultado);
 
   if (navigator.share) {
     navigator.share({
@@ -63,6 +73,35 @@ function compartirResultado() {
     alert("Lo siento, la función de compartir no es compatible con tu dispositivo o navegador.");
   }
 }
+
+// Función para cargar los ajustes desde el almacenamiento local
+function cargarAjustes() {
+  var campoPrecio = document.getElementById("precio");
+  var campoTasa = document.getElementById("tasa");
+  var campoComision = document.getElementById("comision");
+  var campoResultado = document.getElementById("resultado");
+
+  var precio = localStorage.getItem("precio");
+  var tasa = localStorage.getItem("tasa");
+  var comision = localStorage.getItem("comision");
+  var resultado = localStorage.getItem("resultado");
+
+  if (precio !== null) {
+    campoPrecio.value = precio;
+  }
+  if (tasa !== null) {
+    campoTasa.value = tasa;
+  }
+  if (comision !== null) {
+    campoComision.value = comision;
+  }
+  if (resultado !== null) {
+    campoResultado.value = resultado;
+  }
+}
+
+// Llamar a la función cargarAjustes al cargar la página
+window.addEventListener("DOMContentLoaded", cargarAjustes);
 
 // Función para obtener la fecha y hora actual en formato de código
 function obtenerFechaHoraActual() {

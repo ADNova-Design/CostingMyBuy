@@ -49,13 +49,26 @@ function compartirResultado() {
   var comision = parseFloat(campoComision.value);
   var resultado = campoResultado.value;
 
-  var mensaje = "Factura del Pedido" + "\n\n" +
-    "Precio del carrito: " + precio.toFixed(2) + " USD\n" +
-    "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
-    "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
-    "TOTAL: " + resultado + " CUP\n\n" +
-    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/" + "\n\n" +
-    "Código: " + obtenerFechaHoraActual() + "\n";
+  var mensaje =
+    "Factura del Pedido" +
+    "\n\n" +
+    "Precio del carrito: " +
+    precio.toFixed(2) +
+    " USD\n" +
+    "Tasa USD: " +
+    tasa.toFixed(2) +
+    " USD\n" +
+    "Porcentaje sobre compra: " +
+    comision.toFixed(0) +
+    "%\n\n" +
+    "TOTAL: " +
+    resultado +
+    " CUP\n\n" +
+    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/" +
+    "\n\n" +
+    "Código: " +
+    obtenerFechaHoraActual() +
+    "\n";
 
   // Store form values in local storage
   localStorage.setItem("precio", precio);
@@ -64,13 +77,16 @@ function compartirResultado() {
   localStorage.setItem("resultado", resultado);
 
   if (navigator.share) {
-    navigator.share({
-      text: mensaje
-    })
-      .then(() => console.log('Contenido compartido exitosamente.'))
-      .catch((error) => console.log('Error al compartir:', error));
+    navigator
+      .share({
+        text: mensaje,
+      })
+      .then(() => console.log("Contenido compartido exitosamente."))
+      .catch((error) => console.log("Error al compartir:", error));
   } else {
-    alert("Lo siento, la función de compartir no es compatible con tu dispositivo o navegador.");
+    alert(
+      "Lo siento, la función de compartir no es compatible con tu dispositivo o navegador."
+    );
   }
 }
 
@@ -102,6 +118,25 @@ function cargarAjustes() {
 
 // Llamar a la función cargarAjustes al cargar la página
 window.addEventListener("DOMContentLoaded", cargarAjustes);
+
+// Función para obtener la fecha y hora actual en formato de código
+function obtenerFechaHoraActual() {
+  var fechaHora = new Date();
+
+  var dia = fechaHora.getDate().toString().padStart(2, "0");
+  var mes = (fechaHora.getMonth() + 1).toString().padStart(2, "0");
+  var anio = fechaHora.getFullYear().toString();
+  var hora = fechaHora.getHours().toString().padStart(2, "0");
+  var minutos = fechaHora.getMinutes().toString().padStart(2, "0");
+  var ampm = fechaHora.getHours() >= 12 ? "" : "";
+
+  return dia + mes + anio + hora + minutos + ampm;
+}
+
+// Llamar a la función compartirResultado al hacer clic en el botón de compartir
+document.getElementById("btn-compartir").addEventListener("click", function () {
+  compartirResultado();
+});
 
 // Función para obtener la fecha y hora actual en formato de código
 function obtenerFechaHoraActual() {

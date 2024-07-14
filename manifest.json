@@ -23,5 +23,9 @@
       "platform": "play",
       "id": ""
     }
-  ]
+  ],
+  "service_worker": {
+    "src": "service-worker.js",
+    "scope": "/"
+  }
 }

@@ -32,12 +32,13 @@
           <form name="form">
             <h1 id="titulo">Calculadora <br>de <span class="encargos">Encargos</span></h1>
       
-            <input type="text" class="vsaida" id="precio" name="precio" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Precio del producto">
+            <input type="text" class="vsaida" id="precio" name="precio" inputmode="numeric" oninput="calcular()" placeholder="Precio del producto">
             <input type="text" class="vsaida" id="tasa" name="tasa" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Tasa del USD">
+            <label for="comision">Comisión por la compra:</label>            
             <input type="text" class="vsaida" id="resultado" name="resultado" placeholder="Resultado" readonly>
             
-            <label for="comision">Comisión por la compra:</label>
-            <input type="text" class="vsaida" id="comision" name="comision" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Comisión en %" value="15">
+            
+            <input type="text" class="vsaida" id="comision" name="comision" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Comisión en %" value="20">
 
             <button id="btn-compartir" class="btn-compartir">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">

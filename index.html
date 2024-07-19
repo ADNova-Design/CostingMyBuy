@@ -32,16 +32,14 @@
           <form name="form">
             <h1 id="titulo">Calculadora <br>de <span class="encargos">Encargos</span></h1>
             
-            <label for="comision">Costo del carrito</label>
             <input type="text" class="vsaida" id="precio" name="precio" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Precio del producto">
-            
-            <label for="comision">Tasa del USD</label>
             <input type="text" class="vsaida" id="tasa" name="tasa" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Tasa del USD">
+            <input type="text" class="vsaida" id="comision" name="comision" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Comisión en porciento">
+
             <input type="text" class="vsaida" id="resultado" name="resultado" placeholder="Resultado" readonly>
             
-            <label for="comision">Comisión</label>
-            <input type="text" class="vsaida" id="comision" name="comision" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Comisión en %" value="15">
-
+  
+            
             <button id="btn-compartir" class="btn-compartir">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
                 <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>

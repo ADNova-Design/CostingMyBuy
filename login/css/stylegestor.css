@@ -29,7 +29,7 @@
 
   .gestores-box .user-box input,
   .gestores-box .user-box textarea {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     font-size: 16px;
     border: none;
@@ -74,4 +74,22 @@
 
   .gestores-box button:hover {
     background-color: #e98197;
+  }
+  
+  #guardar-button,
+  #limpiar-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+
+  #guardar-button:focus,
+  #limpiar-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #4CAF50;
   }

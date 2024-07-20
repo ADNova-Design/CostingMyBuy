@@ -58,7 +58,7 @@ function formatCardNumber(value) {
   var username = document.getElementById("username").value;
       
             // Crear el objeto de datos a enviar
-            var messageText = '🛒 Nuevo Encargo de ' + username + '\n\n' +              
+            var messageText = '🛒 Nuevo Encargo de #' + username + '\n\n' +              
               'Cliente: ' + cliente + '\n' +
               'Teléfono: ' + telefono + '\n' +
               'Correo: ' + correo + '\n' +

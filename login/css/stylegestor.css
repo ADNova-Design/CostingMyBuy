@@ -11,15 +11,17 @@
 }
 
   .gestores-box h2 {
+    font-family: "Montserrat";
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
   }
 
   .gestores-box form {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .gestores-box .user-box {
@@ -29,6 +31,8 @@
 
   .gestores-box .user-box input,
   .gestores-box .user-box textarea {
+    overflow: hidden;
+    font-family: "Montserrat";
     width: 80%;
     padding: 10px;
     font-size: 16px;
@@ -75,21 +79,57 @@
   .gestores-box button:hover {
     background-color: #e98197;
   }
-  
-  #guardar-button,
-  #limpiar-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
+
+ /* Estilos específicos para los botones con identificadores */
+ button#guardar-button,
+ button#limpiar-button {
+   display: inline-block;
+   padding: 10px 30px;
+   font-size: 16px;
+   border: none;
+   border-radius: 10px;
+   background-color: #4CAF50;
+   color: white;
+   cursor: pointer;
+ }
+
+ button#guardar-button:focus,
+ button#limpiar-button:focus {
+   outline: none;
+   box-shadow: 0 0 0 2px #4CAF50;
+ }
+
+ /* Estilos para el contenedor de botones */
+ .button-container {
+   display: flex;
+   justify-content: space-between;
+   margin-top: 10px;
+   margin-left: 15%;
+ }
+
+ @media screen and (max-width: 600px) {
+   /* Ajustar el margen izquierdo para pantallas de teléfonos más pequeñas */
+   .button-container {
+     margin-left: 5%;
+   }
+ }
+
+ 
+   /* Estilos personalizados para la notificación */
+   .toastify-custom {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    padding: 10px;
     border-radius: 4px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
   }
 
-  #guardar-button:focus,
-  #limpiar-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #4CAF50;
+  /* Estilo para notificación de éxito */
+  .toastify-custom.toastify-custom-success {
+    background-color: #28a745;
+  }
+
+  /* Estilo para notificación de error */
+  .toastify-custom.toastify-custom-error {
+    background-color: #dc3545;
   }

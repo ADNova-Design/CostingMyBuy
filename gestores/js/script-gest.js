@@ -1,4 +1,20 @@
 
+// Obtén todos los elementos de entrada del formulario
+const formInputs = document.querySelectorAll('input, textarea');
+      
+// Captura el evento focus de los elementos de entrada
+formInputs.forEach(input => {
+  input.addEventListener('focus', () => {
+    // Deshabilitar el desplazamiento de la página
+    document.body.style.overflow = 'hidden';
+  });
+
+  // Captura el evento blur de los elementos de entrada
+  input.addEventListener('blur', () => {
+    // Habilitar el desplazamiento de la página
+    document.body.style.overflow = 'auto';
+  });
+});
 
 // CAMPO DE TARJETA 4x4
 var tarjetaInput = document.getElementById('tarjeta');
@@ -23,75 +39,86 @@ function formatCardNumber(value) {
 
   return formattedValue;
 }
-
 // GUARDAR INFORMACION
-          function guardarPedido() {
-            // Obtener los valores de los campos del formulario
-            var cliente = document.getElementById('cliente').value;
-            var telefono = document.getElementById('telefono').value;
-            var correo = document.getElementById('correo').value;
-            var carrito = document.getElementById('carrito').value;
-            var tarjeta = document.getElementById('tarjeta').value;            
-            var precio = document.getElementById('precio1').value;
-            var detalles = document.getElementById('detalles').value;
-      
-            // Verificar que el precio sea un número válido
-            if (isNaN(precio)) {
-              console.error('El precio debe ser un número válido');
-              return false; // Impedir el envío del formulario
-            }
+function guardarPedido() {
+  // Obtener los valores de los campos del formulario
+  var cliente = document.getElementById('cliente').value;
+  var telefono = document.getElementById('telefono').value;
+  var correo = document.getElementById('correo').value;
+  var carrito = document.getElementById('carrito').value;
+  var tarjeta = document.getElementById('tarjeta').value;            
+  var precio = document.getElementById('precio1').value;
+  var detalles = document.getElementById('detalles').value;
 
-             // Verificar que los campos requeridos no estén vacíos
-      if (
-        cliente.trim() === '' ||
-        telefono.trim() === '' ||
-        carrito.trim() === '' ||
-        tarjeta.trim() === '' ||
-        precio.trim() === '' ||
-        detalles.trim() === ''
-      ) {
-        alert('Por favor, complete todos los campos requeridos.');
-        return false; // Impedir el envío del formulario
-      }
+  // Verificar que el precio sea un número válido
+  if (isNaN(precio)) {
+    mostrarNotificacion('El precio debe ser un número válido', 'error');
+    return false; // Impedir el envío del formulario
+  }
 
-      // Obtener el nombre de usuario registrado
+  // Verificar que los campos requeridos no estén vacíos
+  if (
+    cliente.trim() === '' ||
+    telefono.trim() === '' ||
+    carrito.trim() === '' ||
+    precio.trim() === '' ||
+    detalles.trim() === ''
+  ) {
+    mostrarNotificacion('Por favor, complete todos los campos requeridos.', 'error');
+    return false; // Impedir el envío del formulario
+  }
+
+  // Obtener el nombre de usuario registrado
   var username = document.getElementById("username").value;
-      
-            // Crear el objeto de datos a enviar
-            var messageText = '🛒 Nuevo Encargo de #' + username + '\n\n' +              
-              'Cliente: ' + cliente + '\n' +
-              'Teléfono: ' + telefono + '\n' +
-              'Correo: ' + correo + '\n' +
-              'Carrito: ' + carrito + '\n' +
-              'Precio Total: ' + precio + ' CUP\n' +
-              'No. Tarjeta Receptora:\n' + tarjeta + '\n' +
-              'Detalles:\n' + detalles;
 
-            // Realizar una solicitud POST a la API de Telegram
-            fetch('https://api.telegram.org/bot7406598868:AAGxOaXNIfdvC_dJq5XCD4U-KcGmVmwBwMA/sendMessage', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                chat_id: '-1002230826663',
-                text: messageText
-              })
-            })
-              .then(response => {
-          if (response.ok) {
-            console.log('Mensaje enviado exitosamente a Telegram');
-            // Puedes agregar aquí cualquier acción adicional después de enviar el mensaje
-          } else {
-            console.error('Error al enviar el mensaje a Telegram');
-          }
-        })
-        .catch(error => {
-          console.error('Error al enviar la solicitud a la API de Telegram:', error);
-        });
+  // Crear el objeto de datos a enviar
+  var messageText = '🛒 Nuevo Encargo de #' + username + '\n\n' +              
+    'Cliente: ' + cliente + '\n' +
+    'Teléfono: ' + telefono + '\n' +
+    'Correo: ' + correo + '\n' +
+    'Carrito: ' + carrito + '\n' +
+    'Precio Total: ' + precio + ' CUP\n' +
+    'No. Tarjeta Receptora:\n' + tarjeta + '\n' +
+    'Detalles:\n' + detalles;
 
-      return true; // Permitir el envío del formulario
-    };
+  // Realizar una solicitud POST a la API de Telegram
+  fetch('https://api.telegram.org/bot7406598868:AAGxOaXNIfdvC_dJq5XCD4U-KcGmVmwBwMA/sendMessage', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      chat_id: '-1002230826663',
+      text: messageText
+    })
+  })
+    .then(response => {
+      if (response.ok) {
+        mostrarNotificacion('Datos enviados exitosamente', 'success');
+        // Puedes agregar aquí cualquier acción adicional después de enviar el mensaje  
+      } else {
+        mostrarNotificacion('Error al enviar el mensaje a Telegram', 'error');
+      }
+    })
+    .catch(error => {
+      mostrarNotificacion('Error al enviar la solicitud a la API de Telegram: ' + error, 'error');
+    });
+
+  return true; // Permitir el envío del formulario
+}
+
+// Función para mostrar la notificación
+function mostrarNotificacion(mensaje, tipo) {
+  Toastify({
+    text: mensaje,
+    duration: 3000,
+    close: true,
+    gravity: 'top',
+    position: 'right',
+    backgroundColor: tipo === 'error' ? '#dc3545' : '#28a745',
+    className: 'toastify-custom',
+  }).showToast();
+}
            
 // USUARIOS AUTORIZADOS
           function validateCredentials() {

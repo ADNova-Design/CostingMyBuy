@@ -78,7 +78,7 @@ function guardarPedido() {
     'Correo: ' + correo + '\n' +
     'Carrito: ' + carrito + '\n' +
     'Precio Total: ' + precio + ' CUP\n' +
-    'No. Tarjeta Receptora:\n' + tarjeta + '\n' +
+    'No. Tarjeta Receptora:\n' + tarjeta + '\n\n' +
     'Detalles:\n' + detalles;
 
   // Realizar una solicitud POST a la API de Telegram
@@ -111,8 +111,8 @@ function guardarPedido() {
 function mostrarNotificacion(mensaje, tipo) {
   Toastify({
     text: mensaje,
-    duration: 3000,
-    close: true,
+    duration: 1000,
+    close: false,
     gravity: 'top',
     position: 'right',
     backgroundColor: tipo === 'error' ? '#dc3545' : '#28a745',

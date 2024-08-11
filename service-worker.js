@@ -1,3 +1,4 @@
+// service-worker.js
 
 const CACHE_NAME = 'calculadora-cache-v1';
 const urlsToCache = [
@@ -15,8 +16,26 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
+    caches.open(CACHE_NAME).then(function(cache) {
+      return fetch(event.request).then(function(response) {
+        cache.put(event.request, response.clone());
+        return response;
+      });
+    }).catch(function() {
+      return caches.match(event.request);
+    })
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.filter(name => name !== CACHE_NAME).map(name => {
+          return caches.delete(name);
+        })
+      );
+    })
   );
 });
 
@@ -25,6 +44,9 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
       .then(function(registration) {
         console.log('Service Worker registrado con éxito:', registration);
+        if (navigator.onLine) {
+          registration.update();
+        }
       })
       .catch(function(error) {
         console.log('Error al registrar el Service Worker:', error);

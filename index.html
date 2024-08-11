@@ -20,6 +20,8 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
+
+  
 </head>
 <body>
   <div id="smartphone">
@@ -36,14 +38,28 @@
           <form name="form">
             <h1 id="titulo">Calculadora <br>de <span class="encargos">Encargos</span></h1>
             
-            <input type="text" class="vsaida" id="precio" name="precio" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Precio del producto">
-            <input type="text" class="vsaida" id="tasa" name="tasa" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Tasa del USD">
-            <input type="text" class="vsaida" id="comision" name="comision" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder="Comisión en porciento">
+            <div class="vsaida">
+              <input type="number" id="precio" name="precio" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder=" ">
+              <label for="precio">Precio del carrito:</label>
+          </div>
+          
+          <div class="vsaida">
+              <input type="number" id="tasa" name="tasa" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder=" ">
+              <label for="tasa">Tasa del USD:</label>
+          </div>
+          
+          <div class="vsaida">
+              <input type="number" id="comision" name="comision" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder=" ">
+              <label for="comision">Comisión:</label>
+          </div>
+          
+          <div class="vsaida">
+              <input type="number" id="resultado" name="resultado" placeholder=" " readonly>
+              <label for="resultado">Resultado</label>
+          </div>    
 
-            
-            <input type="text" class="vsaida" id="resultado" name="resultado" placeholder="Resultado" readonly>
-            
-            
+        
+
             
             <button id="btn-compartir" class="btn-compartir">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">

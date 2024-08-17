@@ -37,30 +37,62 @@ function calcular() {
   }
 }
 
-// Función para compartir el resultado
 function compartirResultado() {
-  var precio = parseFloat($('#precio').val());
-  var tasa = parseFloat($('#tasa').val());
-  var comision = parseFloat($('#comision').val());
-  var resultado = $('#resultado').val();
+  // Obtener los datos del formulario
+  const precio = parseFloat($('#precio').val());
+  const tasa = parseFloat($('#tasa').val());
+  const comision = parseFloat($('#comision').val());
+  const resultado = $('#resultado').val();
+  const nombreUsuario = $('#nombreUsuario').val(); // Suponiendo que tienes un campo para el nombre
 
-  var mensaje = "Factura del Pedido" + "\n\n" +
-    "Precio de producto: " + precio.toFixed(2) + " USD\n" +
-    "Tasa USD: " + tasa.toFixed(2) + " USD\n" +
-    "Porcentaje sobre compra: " + comision.toFixed(0) + "%\n\n" +
-    "RESULTADO: " + resultado + " CUP\n\n" +
-    "Compartido desde: https://adnova-design.github.io/CostingMyBuy/" + "\n\n" + 
-    "Código: " + obtenerFechaHoraActual();
+  // Validar los datos (puedes personalizar esta función)
+  if (!validarDatos(precio, tasa, comision)) {
+    alert('Por favor, ingresa valores numéricos válidos.');
+    return;
+  }
 
+  // Crear el mensaje a compartir
+  const mensaje = `Hola ${nombreUsuario},\n\n` +
+                  `Factura del Pedido\n\n` +
+                  `Precio de producto: ${precio.toFixed(2)} USD\n` +
+                  `Tasa USD: ${tasa.toFixed(2)} USD\n` +
+                  `Porcentaje sobre compra: ${comision.toFixed(0)}%\n\n` +
+                  `RESULTADO: ${resultado} CUP\n\n` +
+                  `Código: ${obtenerFechaHoraActual()}\n`;
+
+  // Intentar compartir utilizando la API Web Share
   if (navigator.share) {
     navigator.share({
-      text: mensaje
+      title: 'Compartir resultado del cálculo',
+      text: mensaje,
+      url: window.location.href // Opcional: Incluir la URL de la página
     })
-      .then(() => console.log('Contenido compartido exitosamente.'))
-      .catch((error) => console.log('Error al compartir:', error));
+    .then(() => console.log('Contenido compartido exitosamente.'))
+    .catch((error) => {
+      console.error('Error al compartir:', error);
+      alert('Ocurrió un error al compartir. Intenta nuevamente más tarde.');
+    });
   } else {
-    alert("Lo siento, la función de compartir no es compatible con tu dispositivo o navegador.");
+    // Si la API no está disponible, ofrecer alternativas
+    const clipboard = navigator.clipboard;
+    if (clipboard) {
+      clipboard.writeText(mensaje)
+        .then(() => {
+          alert('El resultado se ha copiado al portapapeles. Pégalo en tu aplicación de mensajería favorita.');
+        })
+        .catch((err) => {
+          console.error('Failed to copy: ', err);
+          alert('No se pudo copiar al portapapeles. Intenta nuevamente más tarde.');
+        });
+    } else {
+      alert('Tu navegador no admite la función de compartir. Puedes copiar el siguiente texto y pegarlo en tu aplicación de mensajería favorita:\n\n' + mensaje);
+    }
   }
+}
+
+// Función para validar los datos (ejemplo)
+function validarDatos(precio, tasa, comision) {
+  return !isNaN(precio) && !isNaN(tasa) && !isNaN(comision) && precio >= 0 && tasa >= 0 && comision >= 0;
 }
 
 // Función para obtener la fecha y hora actual en formato de código
@@ -77,10 +109,12 @@ function obtenerFechaHoraActual() {
   return dia + mes + anio + hora + minutos + ampm;
 }
 
-// Llamar a la función compartirResultado al hacer clic en el botón de compartir
+
+// Agregar evento al botón de compartir
 $('#btn-compartir').click(function() {
   compartirResultado();
 });
+
 
 $(document).ready(function() {
   var frase1 = "Encargos"; // Frase 1 para mostrar
@@ -129,11 +163,6 @@ $(document).ready(function() {
   maquinaEscribir(encargos, frase1, 100); // Mostrar la primera frase inicialmente
 });
 
-// Agregar evento al botón de compartir
-$('#btn-compartir').click(function() {
-  compartirResultado();
-});
-
 // Función para guardar los ajustes en el almacenamiento local
 function guardarAjustes() {
   localStorage.setItem('porcentajeSobreCompra', porcentajeSobreCompra);
@@ -155,3 +184,10 @@ function cargarAjustes() {
 $(document).ready(function() {
   cargarAjustes();
 });
+
+function limpiarCampos() {
+  document.getElementById("precio").value = "";
+  document.getElementById("tasa").value = "";
+  document.getElementById("comision").value = "";
+  document.getElementById("resultado").value = "";
+}

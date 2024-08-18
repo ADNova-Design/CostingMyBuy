@@ -1,0 +1,297 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+#calculadora {
+  width: 340px;
+  height: 570px;
+  margin: 0 auto;
+  top: 20px;
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+  padding-top: 10px;
+}
+
+#resultado {
+  height: 60px;
+}
+
+.vsaida {  
+  align-items: center;
+  text-align: center;
+  height: 55px;
+  margin: 10px 20px;
+  font-size: 20px;
+  /* outline: none; */
+  /* border: solid 1px; */
+  /* border-radius: 20px; */
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.vsaida input {
+  text-align: center;
+  width: 90%;
+  padding: 0.5rem;
+  font-size: 20px;
+  border: 1px solid #3b3b3b;
+  border-radius: 20px;
+}
+
+.vsaida label {
+  position: absolute;
+  top: 0.5rem;
+  left: 4rem;
+  color: #888;
+  font-size: 1rem;
+  transition: top 0.3s, font-size 0.3s;
+  pointer-events: none;
+}
+
+.vsaida input:focus + label,
+.vsaida input:not(:placeholder-shown) + label {
+  text-align: center;  
+  top: -1.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+form{
+ margin-top: 30%;
+
+}
+h1 {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+#titulo .encargos {
+  font-family: 'Dancing Script', cursive;
+  font-style: italic;
+}
+
+#titulo {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(-45deg, #f5077e, #9707aa, #0619c7);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: cambioColores 15s infinite;
+}
+
+@keyframes cambioColores {
+  0% {
+      background-position: 0%;
+  }
+
+  50% {
+      background-position: 100%;
+  }
+
+  100% {
+      background-position: 0%;
+  }
+}
+ /* Estilos para el botón "Limpiar" */
+ #btn-limpiar {
+  background: linear-gradient(-45deg, #5c27fe, #c165dd );  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10%;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+/* Estilos para el botón "Compartir" */
+#btn-compartir {
+  bottom: 10px;
+  background: linear-gradient(-45deg, #c165dd, #5c27fe);  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10%;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+
+.vsaida input[id="precio"] {
+  padding-left: 10px; /* Espacio para el icono */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16"><path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 25px center; /* Mueve el icono 30px hacia la derecha */
+  background-size: 20px 20px; /* Ajusta el tamaño del icono */
+}
+
+
+.vsaida input[id="tasa"] {
+  padding-left: 10px; /* Espacio para el icono */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 25px center; /* Mueve el icono 25px hacia la derecha */
+  background-size: 20px 20px; /* Ajusta el tamaño del icono */
+}
+
+.vsaida input[id="comision"] {
+  padding-left: 10px; /* Espacio para el icono */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16"><path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"/><path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 25px center; /* Ajusta la posición del icono */
+  background-size: 20px; /* Tamaño del icono */
+}
+
+.vsaida input[id="resultado"] {
+  padding-left: 10px; /* Espacio para el icono */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16"><path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 25px center; /* Ajusta la posición del icono */
+  background-size: 30px; /* Tamaño del icono */
+}
+
+/* Estilos para la notificación */.notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  display: none; /* Inicialmente oculto */
+}
+
+.notification.show {
+  display: block; /* Mostrar notificación */
+}
+
+.notification.error {
+  background-color: #ff6347; /* Color de error */
+}
+
+
+/* Estilos para el botón de hamburguesa */
+
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100; /* Por encima del menú */
+  width: 30px;
+  height: 24px;
+}
+
+/* Estilos para el menú de hamburguesa en pantallas móviles */
+#site-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Ancho del menú */
+  height: 100vh;
+  background-color: #fff; /* Color de fondo del menú */
+  z-index: 1000; /* Por debajo del botón de hamburguesa */
+  transform: translateX(-100%); /* Inicialmente fuera de la pantalla */
+  transition: transform 0.3s; /* Transición al abrir/cerrar el menú */
+}
+
+#site-nav.is-active {
+  transform: translateX(0); /* Mostrar el menú desplazando el contenido principal */
+}
+
+#site-nav.is-active {
+  display: block;
+}
+
+
+.hamburger-inner {
+  width: 100%;
+  height: 2px;
+  background-color: #333; /* Color de las líneas de la hamburguesa */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+}
+
+.hamburger.is-active .hamburger-inner {
+  background-color: #fff; /* Color de las líneas de la hamburguesa cuando está activa */
+}
+
+/* Estilos para centrar el contenido del menú de navegación */
+#contenedor-menu {
+  text-align: center; /* Centrar el contenido */
+}
+
+#contenedor-menu h4 {
+  text-align: left;
+  margin-top: 90px; /* Espaciado alrededor del título */
+  margin-left: 50px;
+  font-size: 20px;
+}
+
+
+#contenedor-menu .h4NO2  {
+  margin-top: 30px; /* Espaciado entre los dos h4 */
+}
+
+#contenedor-menu a {
+  font-size: 20px;
+  text-decoration: none; /* Quitar el subrayado de los enlaces */
+  color: #333; /* Color del texto de los enlaces */
+  transition: color 0.3s ease;
+}
+
+#site-nav p{
+  margin-top: 90px;
+  text-align: center;
+  font-size: 12px;
+}
+
+#contenedor-menu a:hover {
+  text-decoration: none; /* Quitar el subrayado al pasar el ratón por encima */
+  color: #555; /* Cambiar el color del texto al pasar el ratón por encima */
+}
+
+#contenedor-menu ul {
+  text-align: left;
+  margin-left: 50px;
+  padding: 0;
+  list-style: none;
+  text-underline-offset: none;
+}
+
+#contenedor-menu li {
+  margin: 5px 0; /* Espaciado entre elementos de la lista */
+}
+
+#contenedor-menu li a {
+color: #b4b9ba;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#contenedor-menu li a:hover,
+#contenedor-menu li a:focus {
+  color: rgb(0, 0, 0);
+}

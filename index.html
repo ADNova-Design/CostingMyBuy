@@ -8,15 +8,13 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hamburgers/dist/hamburgers.min.css">
   <link rel="manifest" href="manifest.json">
   
   <title>Costing My Buy</title>  
-  <link href="calc/css/style.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="login/css/style.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="login/css/stylegestor.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
-  <link href="style.css" rel="stylesheet" type="text/css" media="all" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
@@ -24,138 +22,82 @@
   
 </head>
 <body>
-  <div id="smartphone">
-    <div id="content">
+<div id="smartphone">
+  <div id="calculadora">
+    <div class="hero">
+      <header id="masthead" role="banner">
+        <div class="container">
+          <button class="hamburger hamburger--slider" type="button" aria-label="Menu" aria-controls="site-nav">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>                   
+          <nav id="site-nav" role="navigation">
+            <div class="col" id="contenedor-menu">
+              <h4><b>Opciones</b></h4>
+              <ul>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Sobre nosotros</a></li>                
+                <li><a href="#">Términos y condiciones</a></li>
+              </ul> 
+              <h4 id="h4NO2"><b>Soporte</b></h4>
+              <ul>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Telegram</a></li>
+              </ul>           
+            </div>
+
+            <p>Created by AGC</p>
+          </nav>
+        </div>
+      </header>
       
-      <div class="page" id="page1">
-        <h3>Comming Soon!!!</h3>
-        <p>We are working on it.</p>
-      </div>
+      <form name="form">
+            <h1 id="titulo">Calculadora <br>de <span class="encargos">Encargos</span></h1>
+             <div class="vsaida">
+              <input type="number" id="precio" name="precio" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder=" ">
+              <label for="precio">Precio del carrito</label>
+          </div>
+          
+          <div class="vsaida">
+              <input type="number" id="tasa" name="tasa" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder=" ">
+              <label for="tasa">Tasa del USD</label>
+          </div>
+          
+          <div class="vsaida">
+              <input type="number" id="comision" name="comision" inputmode="numeric" pattern="[0-9]*" oninput="calcular()" placeholder=" ">
+              <label for="comision">Comisión</label>
+          </div>
+          
+          <div class="vsaida">
+              <input type="number" id="resultado" name="resultado" placeholder=" " readonly>
+              <label for="resultado">Total a pagar</label>
+          </div>        
 
-      <div class="page  page_active" id="page2">
-        <div id="calculadora">
-
-          <form name="form">
-            <h1 id="titulo">Calculadora <br>de <span class="encargos">Encargos</span></h1>        
-            <p>Sabíamos que lo estabas esperando:<br> Ya tenemos app independiente para nuestra calculadora de encargos.</p>
-            <p><b>Descargala desde Drive Ya!!!<b></p>
-
-                         
-        <a href="https://drive.google.com/drive/folders/1ULbST64eWCBEI4i-NK-0tiDvaqpNs9Gx?usp=sharing" id="btn-compartir" class="btn-compartir">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
-                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
-              </svg>
-            </a>
+          <button id="btn-limpiar" onclick="limpiarCampos()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+            </svg> Borrar
+          </button>
+            
+          <button id="btn-compartir" class="btn-compartir">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clipboard2-check" viewBox="0 0 16 16">
+              <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5z"/>
+              <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z"/>
+              <path d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+            </svg> Copiar
           </button>         
 
           </form>
         </div>
       
        
-      </div>
+        <script type="text/javascript" src="js/script.js"></script>
+      </div>    
+      <div class="notification" id="notification"></div>     
 
-      <div class="page" id="page3">
-        <h3>More tools from ADNova!!!</h3>
-        <p>We are working on it.</p>
-      </div>
       
-      <div class="page" id="page4">
-        <div class="login-box" id="loginBox">
-          <h2>Acceso para Gestores</h2>
-          <form onsubmit="return validateCredentials()">
-            <div class="user-box">
-              <input type="text" id="username" required>
-              <label>Usuario</label>
-            </div>
-            <div class="user-box">
-              <input type="password" id="password" required>
-              <label>Contraseña</label>
-            </div>
-            <button type="submit">Acceder</button>
-          </form>
-        </div>
-      
-        <div class="gestores-box" id="gestoresBox" style="display: none;">
-          <h2 id="saludoUsuario"></h2>
-          <form id="pedidoForm">
-            <div class="user-box">
-              <input type="text" id="cliente" placeholder="Nombre y apellidos" required>
-            </div>
-            <div class="user-box">
-              <input type="tel" id="telefono" placeholder="Teléfono" pattern="[0-9]+" required>
-            </div>
-            <div class="user-box">
-              <input type="email" id="correo" placeholder="Correo Gmail">
-            </div>
-            <div class="user-box">
-              <input type="url" id="carrito" placeholder="Link del carrito" required>
-            </div>
-            <div class="user-box">
-              <input type="text" id="tarjeta" minlength="19" maxlength="19" placeholder="No. Tarjeta Recept. de transferencia">
-            </div>
-            <div class="user-box">
-              <input type="number" id="precio1" maxlength="16" placeholder="Precio Total" required>
-            </div>
-            <div class="user-box">
-              <textarea id="detalles" rows="4" required placeholder="Detalles sobre el pedido (ejemp: nombre de los productos)"></textarea>
-            </div>
-            <div class="button-container">
-              <button id="guardar-button" class="special-button" type="button" onclick="guardarPedido()">Guardar</button>
-              <button id="limpiar-button" class="special-button" type="button" onclick="limpiarFormulario()">Limpiar</button>
-            </div>
-
-            <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true" id="subscriptionNotification" style="display: none;">
-              <div class="d-flex">
-                <div class="toast-body">
-                  Su solicitud ha sido enviada.
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>         
-       
-       
-        <script type="text/javascript" src="gestores/js/script-gest.js"></script>
-      
-      </div>
-
-    <div id="nav">
-      <div id="circle" style="left: 125px;"></div>
-      
-      <button class="button_icon" onclick="select_page(0)">
-        <i class="bi bi-house">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
-          <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
-        </svg></i>
-      </button>
-    
-      <button class="button_icon button_icon_selected" onclick="select_page(1)">
-        <i class="bi bi-calculator-fill">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
-          <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-          <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
-        </svg></i>
-      </button>
-
-      <button class="button_icon" onclick="select_page(2)">
-        <i class="bi bi-list">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-        </svg></i>
-      </button>
-
-      <button class="button_icon" onclick="select_page(3)">
-        <i class="bi bi-person">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-          </svg></i>
-      </button>
-    </div>
-  </div>
-  
-
-  <script type="text/javascript" src="script.js"></script>
 
 </body>
 </html>

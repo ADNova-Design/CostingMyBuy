@@ -39,9 +39,7 @@ function calcular() {
 
 
 
-// Aquí va tu código JavaScript con jQuery
 // COMPARTIR
-
 function compartirResultado() {
   // Obtener los datos del formulario
   const precio = parseFloat($('#precio').val());
@@ -202,7 +200,7 @@ function cargarAjustes() {
   }
 }
 
-// Llamar a la función cargarAjustes al cargar la página
+// Llamar a la función cargar Ajustes al cargar la página
 $(document).ready(function() {
   cargarAjustes();
 });

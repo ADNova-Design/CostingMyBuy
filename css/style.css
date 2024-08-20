@@ -139,6 +139,54 @@ h1 {
   padding: 10px 20px;
 }
 
+.actualizar {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* BOTON ACTUALIZAR */
+.actualizar {
+  touch-action: manipulation;
+  appearance: button;
+  background-color: transparent;
+  border-style: initial;
+  border-width: 0;
+  cursor: pointer;
+  margin: 0;
+  text-transform: none;
+  vertical-align: baseline;
+  margin: 20% 0 0 0;
+  touch-action: manipulation;
+  border-radius: 8px;
+  color: #fff;
+  font-feature-settings: "ss01", "cv10", "calt"0, "liga"0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 10px 20px;
+  position: relative;
+}
+
+
+.actualizar:focus {
+  outline: 0;
+}
+
+
+.actualizar svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
 
 .vsaida input[id="precio"] {
   padding-left: 10px; /* Espacio para el icono */

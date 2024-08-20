@@ -214,8 +214,8 @@ function limpiarCampos() {
 
 // FUNCION ACTUALIZAR APP
 document.getElementById('actualizar').addEventListener('click', function() {
-  // Redirigir a un enlace directo a un archivo específico en Google Drive
-  window.location.href = 'https://drive.google.com/file/d/1WtavbB-u9Sboo96EDKmiKARbQ0cj4E4T/view?usp=drive_link';
+  // Redirigir a la URL deseada al hacer clic en el botón
+  window.location.href = 'https://drive.google.com/drive/folders/1ULbST64eWCBEI4i-NK-0tiDvaqpNs9Gx?usp=sharing';
 });
 
 // Boton Hamburger

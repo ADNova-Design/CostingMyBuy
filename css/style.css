@@ -139,7 +139,8 @@ h1 {
   padding: 10px 20px;
 }
 
-.actualizar {
+/* BOTON ACTUALIZAR */
+#actualizar {
   display: inline-block;
   margin-top: 30px;
   padding: 10px 20px;
@@ -154,8 +155,7 @@ h1 {
   overflow: hidden;
 }
 
-/* BOTON ACTUALIZAR */
-.actualizar {
+#actualizar {
   touch-action: manipulation;
   appearance: button;
   background-color: transparent;
@@ -177,13 +177,11 @@ h1 {
   position: relative;
 }
 
-
-.actualizar:focus {
+#actualizar:focus {
   outline: 0;
 }
 
-
-.actualizar svg {
+#actualizar svg {
   vertical-align: middle;
   margin-right: 5px;
 }
@@ -330,10 +328,10 @@ h1 {
   transition: color 0.3s ease;
 }
 
-#site-nav p{
-  margin-top: 90px;
-  text-align: center;
-  font-size: 12px;
+#site-nav p {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
 }
 
 #contenedor-menu a:hover {

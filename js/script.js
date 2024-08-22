@@ -215,7 +215,7 @@ function limpiarCampos() {
 // FUNCION ACTUALIZAR APP
 document.getElementById('actualizar').addEventListener('click', function() {
   // Redirigir a la URL deseada al hacer clic en el botón
-  window.location.href = 'https://github.com/ADNova-Design/CostingMyBuy/blob/main/Costing%20My%20Buy%20AppV1.apk';
+  window.location.href = 'https://drive.google.com/file/d/1yZmVLItztGyjiapET-4i1Mp2wQiMinKh/view?usp=drive_link';
 });
 
 // Desaparecer efecto fall

@@ -217,6 +217,15 @@ document.getElementById('actualizar').addEventListener('click', function() {
   // Redirigir a la URL deseada al hacer clic en el botón
   window.location.href = 'https://drive.google.com/file/d/1I5xWGif8Nmiz-N7ijMKkauB3xAUBOMNG/view?usp=drive_link';
 });
+// Desaparecer efecto fall
+function stopAnimation() {
+    const burbujaTopLayer = document.getElementById('burbuja-top-layer');
+    const burbujaBottomLayer = document.getElementById('burbuja-bottom-layer');
+
+    burbujaTopLayer.style.animation = 'none';
+    burbujaBottomLayer.style.animation = 'none';
+}
+
 
 // Boton Hamburger
 document.addEventListener('DOMContentLoaded', function() {

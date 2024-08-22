@@ -14,8 +14,6 @@
   <title>Costing My Buy</title>  
   <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
   
-  <link href="actualizar.css" rel="stylesheet" type="text/css" media="all" />
-  
   <link href="downloadapp.css" rel="stylesheet" type="text/css" media="all" />
   
 
@@ -31,12 +29,35 @@
   <div id="calculadora">
     <div class="hero">
       <header id="masthead" role="banner">
+	  
         <div class="container">
+		
           <button class="hamburger hamburger--slider" type="button" aria-label="Menu" aria-controls="site-nav">
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-            </span>
-          </button>                   
+		  
+		  
+           <span class="hamburger-box">
+    
+      <span class="hamburger-inner" onclick="toggleAnimation()"></span>
+	
+</span>
+			
+          </button>   
+        <div class="burbuja">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" class="burbuja">
+            <g id="burbuja-top-layer" style="animation: fall-top 6s linear infinite;">
+                <ellipse cx="30" cy="30" rx="8" ry="8" />                
+				<ellipse cx="40" cy="0" rx="4" ry="4" />
+                <ellipse cx="70" cy="40" rx="6" ry="6" />
+            </g>
+            <g id="burbuja-bottom-layer" style="animation: fall-bottom 6s linear infinite;">
+                <circle cx="50" cy="50" r="5" />
+                <circle cx="30" cy="70" r="8" />
+                <circle cx="70" cy="0" r="6" />
+				<circle cx="20" cy="10" r="6" />
+            </g>
+        </svg>
+    </div>		  
+	  
           <nav id="site-nav" role="navigation">
             <div class="col" id="contenedor-menu">
               <h4><b>OPCIONES</b></h4>

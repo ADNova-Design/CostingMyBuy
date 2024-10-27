@@ -1,3 +1,9 @@
+/*Funcion del Slide Panel */
+function togglePanel() {
+  const panel = document.getElementById('slidingPanel');
+  panel.classList.toggle('open');
+}
+
 function preencher(numero) {
   var campoPrecio = document.getElementById("precio");
   var campoTasa = document.getElementById("tasa");
@@ -18,26 +24,26 @@ function preencher(numero) {
     calcular();
   }
 }
-
 function calcular() {
   var campoPrecio = document.getElementById("precio");
   var campoTasa = document.getElementById("tasa");
-  var campoResultado = document.getElementById("resultado");
   var campoComision = document.getElementById("comision");
+  var campoResultado = document.getElementById("resultado");
 
-  var precio = parseFloat(campoPrecio.value);
-  var tasa = parseFloat(campoTasa.value);
-  var comision = parseFloat(campoComision.value);
+  // Convertir los valores a números de punto flotante
+  var precio = parseFloat(campoPrecio.value) || 0;  // Si no es un número, usar 0
+  var tasa = parseFloat(campoTasa.value) || 0;      // Si no es un número, usar 0
+  var comision = parseFloat(campoComision.value) || 0; // Si no es un número, usar 0
 
+  // Calcular solo si los valores son números válidos
   if (!isNaN(precio) && !isNaN(tasa) && !isNaN(comision)) {
+    // Calcular el resultado
     var resultado = (precio * (comision / 100) + precio) * tasa;
-    campoResultado.value = resultado.toFixed(2);
+    campoResultado.value = resultado.toFixed(2); // Mostrar el resultado con dos decimales
   } else {
-    campoResultado.value = "";
+    campoResultado.value = ""; // Limpiar el resultado si hay un valor no válido
   }
 }
-
-
 
 // COMPARTIR
 function compartirResultado() {
@@ -211,43 +217,3 @@ function limpiarCampos() {
   document.getElementById("comision").value = "";
   document.getElementById("resultado").value = "";
 }
-
-// FUNCION ACTUALIZAR APP
-document.getElementById('actualizar').addEventListener('click', function() {
-  // Redirigir a la URL deseada al hacer clic en el botón
-  window.location.href = 'https://drive.google.com/file/d/1yZmVLItztGyjiapET-4i1Mp2wQiMinKh/view?usp=drive_link';
-});
-
-// Desaparecer efecto fall
-function stopAnimation() {
-    const burbujaTopLayer = document.getElementById('burbuja-top-layer');
-    const burbujaBottomLayer = document.getElementById('burbuja-bottom-layer');
-
-    burbujaTopLayer.style.animation = 'none';
-    burbujaBottomLayer.style.animation = 'none';
-}
-
-
-// Boton Hamburger
-document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.querySelector('.hamburger');
-  const menu = document.querySelector('#site-nav');
-
-  if (hamburger && menu) {
-    hamburger.addEventListener('click', function() {
-      this.classList.toggle('is-active');
-      menu.classList.toggle('is-active');
-    });
-
-    menu.addEventListener('click', function(e) {
-      e.stopPropagation(); // Evitar que el clic en el menú cierre el menú
-    });
-
-    document.addEventListener('click', function(e) {
-      if (!menu.contains(e.target) && !hamburger.contains(e.target) && menu.classList.contains('is-active')) {
-        hamburger.classList.remove('is-active');
-        menu.classList.remove('is-active');
-      }
-    });
-  }
-});

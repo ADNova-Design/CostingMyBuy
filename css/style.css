@@ -392,3 +392,43 @@ h1 {
   background-size: 30px;
   /* Tamaño del icono */
 }
+.notification {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 20px; /* Espacio desde la parte superior */
+  right: 20px; /* Espacio desde la derecha */
+  padding: 15px 20px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  opacity: 0.9; /* Opacidad */
+  transition: opacity 0.3s ease; /* Transición suave para la opacidad */
+  font-family: 'Open Sans', sans-serif; /* Fuente */
+  color: #fff; /* Color del texto */
+}
+
+/* Estilo para notificaciones de información */
+.notification.success {
+  background-color: #a259ff; /* Azul */
+}
+
+.notification.error {
+  background-color: #ff2525; 
+}
+/* Animación de entrada */
+.notification.show {
+  display: block; /* Muestra la notificación */
+  animation: slideIn 0.5s forwards; /* Animación de entrada */
+}
+
+/* Animación de salida */
+@keyframes slideIn {
+  from {
+      transform: translateY(-20px); /* Comienza un poco más arriba */
+      opacity: 0; /* Comienza invisible */
+  }
+  to {
+      transform: translateY(0); /* Termina en su posición original */
+      opacity: 1; /* Termina visible */
+  }
+}

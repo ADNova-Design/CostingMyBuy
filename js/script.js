@@ -79,7 +79,7 @@ function copiarResultado() {
   const textoACopiar = `
 FACTURA DE PEDIDO
 
-Precio del carrito: ${campoPrecio} CUP
+Precio del carrito: ${campoPrecio} USD
 Tasa del USD: ${campoTasa} CUP x USD
 Comisión: ${campoComision} %
 
@@ -90,25 +90,31 @@ ${codigo}
 
   // Copiar el texto al portapapeles
   navigator.clipboard.writeText(textoACopiar).then(() => {
-      mostrarNotificacion('Datos copiados al portapapeles', 'success');
+      mostrarNotificacion('Datos copiados al portapapeles', 'success'); // Notificación de éxito
   }).catch(err => {
       console.error('Error al copiar: ', err);
+      mostrarNotificacion('Error al copiar los datos', 'error'); // Notificación de error
   });
 }
 
 // Función para mostrar notificaciones
 function mostrarNotificacion(mensaje, tipo) {
     const notification = document.createElement('div');
-    notification.classList.add('notification', tipo);
+    notification.classList.add('notification', tipo, 'show'); // Agrega la clase 'show'
     notification.textContent = mensaje;
 
     document.body.appendChild(notification);
 
+    // Mostrar la notificación
+    notification.style.display = 'block'; // Cambia a block para mostrar
+
     setTimeout(() => {
-        notification.remove();
+        notification.classList.remove('show'); // Elimina la clase 'show' para la animación de salida
+        setTimeout(() => {
+            notification.remove(); // Elimina el elemento del DOM después de la animación
+        }, 300); // Tiempo de espera para la animación de salida
     }, 10000); // Mostrar la notificación por 10 segundos
 }
-
 // Función para limpiar campos
 function limpiarCampos() {
     document.getElementById("precio").value = "";

@@ -1,12 +1,13 @@
 body {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
 }
 
 #smartphone {
   margin: 0 auto;
-  /* Centrar horizontalmente */
+  max-width: 400px; /* Limita el ancho máximo para dispositivos móviles */
 }
 
 #calculadora {
@@ -19,7 +20,6 @@ body {
 }
 
 #resultado {
-  height: 60px;
   border: 3px solid #fff;
   background-color: #a259ff;
   border-radius: 50px;
@@ -162,15 +162,15 @@ body {
   color: mediumpurple;
   font-size: 1rem;
   transition: top 0.3s, font-size 0.3s;
-  pointer-events: none;
 }
 
 
 #totallabel{
-  font-size: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #fff;
   background-color: #a259ff;
-  margin: 25px 0 0 40px;
+  margin: 15px 0 0 60px;
 }
 
 
@@ -194,11 +194,34 @@ form {
   padding: 20px;
   text-align: center;
   width: 90%;
-  margin: 0 auto; /* Centrar horizontalmente */
-  position: fixed; /* Fija el formulario */
-  bottom: 0; /* Coloca el formulario en la parte inferior */
-  left: 50%; /* Alinea el formulario al centro horizontalmente */
-  transform: translateX(-50%); /* Ajusta la posición para centrarlo */
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.numerical-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+  padding: 10px; /* Ajusta el padding aquí */
+}
+
+.num-button {
+  padding: 5px; /* Ajusta el padding para que sea más consistente */
+  font-size: 24px;
+  border: none;
+  border-radius: 10px;
+  background-color: #a259ff;
+  color: white;
+  cursor: pointer;
+}
+
+.num-button:hover {
+  background-color: #8e4bd4;
 }
 
 h1 {
@@ -212,8 +235,8 @@ h1 {
 }
 
 #titulo {
-  margin-top: 10%;
-  font-size: 35px;
+  margin-top: 5%;
+  font-size: 30px;
   font-family: 'Open Sans', sans-serif;
   color: #a259ff;  
  
@@ -236,7 +259,7 @@ h1 {
 /* Estilos para el botón "Limpiar" */
 #btn-limpiar {
   background: #a259ff;
-  border: 2px solid white;
+  border: none;
   border-radius: 30px; 
   color: white;
   text-align: center;
@@ -248,19 +271,29 @@ h1 {
   padding: 10px 20px;
 }
 
-/* Estilos para el botón "Compartir" */
 #btn-compartir {
   background: #a259ff;
-  border: 2px solid white;
-  border-radius: 30px; 
+  border: none;
   color: white;
-  text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 18px;
-  margin-top: 20% 0;
-  cursor: pointer;  
-  padding: 10px 20px;
+  cursor: pointer;
+  /* padding: 10px 20px; */
+  position: absolute;
+  right: 10px;
+  top: 85%;
+  transform: translateY(-50%);
+  /* height: 100%; */
+}
+
+.btnes{
+  margin: 0 5%;
+  right: 0;
+  top: 0;
+  width: 30%;
+  border: 2px solid white;
+  border-radius: 20px;
+
 }
 
 /* BOTON ACTUALIZAR */
@@ -358,27 +391,4 @@ h1 {
   /* Ajusta la posición del icono */
   background-size: 30px;
   /* Tamaño del icono */
-}
-
-/* Estilos para la notificación */
-.notification {
-  display: none;
-  text-align: center;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.notification.success {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.notification.error {
-  background-color: #f44336;
-  color: white;
-}
-
-.notification.info {
-  background-color: #2196F3;
-  color: white;
 }

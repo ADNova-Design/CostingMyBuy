@@ -1,5 +1,3 @@
-
-
 let currentInput = null;
 
 document.querySelectorAll('input[type="text"]').forEach(input => {
@@ -71,6 +69,12 @@ function copiarResultado() {
   const campoComision = document.getElementById("comision").value;
   const campoResultado = document.getElementById("resultado").value;
 
+    // Verificar si alguno de los campos está vacío
+    if (campoPrecio === "" || campoTasa === "" || campoComision === "" || campoResultado === "") {
+      mostrarNotificacion('Hay campos que debes llenar', 'error');
+      return;
+    }
+
   // Generar código basado en la fecha y hora actual
   const fecha = new Date();
   const codigo = `COD-${fecha.getFullYear()}${(fecha.getMonth() + 1).toString().padStart(2, '0')}${fecha.getDate().toString().padStart(2, '0')}${fecha.getHours().toString().padStart(2, '0')}${fecha.getMinutes().toString().padStart(2, '0')}`;
@@ -113,7 +117,7 @@ function mostrarNotificacion(mensaje, tipo) {
         setTimeout(() => {
             notification.remove(); // Elimina el elemento del DOM después de la animación
         }, 300); // Tiempo de espera para la animación de salida
-    }, 10000); // Mostrar la notificación por 10 segundos
+    }, 5000); // Mostrar la notificación por 10 segundos
 }
 // Función para limpiar campos
 function limpiarCampos() {
@@ -139,8 +143,6 @@ function cargarAjustes() {
         $('#precio-libras').val(nuevoPrecioLibras);
     }
 }
-
-
 
 $(document).ready(function() {
   var frase1 = "Encargos"; // Frase 1 para mostrar

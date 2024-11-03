@@ -139,3 +139,74 @@ function cargarAjustes() {
         $('#precio-libras').val(nuevoPrecioLibras);
     }
 }
+
+
+
+$(document).ready(function() {
+  var frase1 = "Encargos"; // Frase 1 para mostrar
+  var frase2 = "Compras"; // Frase 2 para mostrar
+  var frase3 = "Inversiones"; // Frase 3 para mostrar
+
+  var frases = [frase1, frase2, frase3]; // Array de frases
+  var indiceActual = 0;
+
+  function maquinaEscribir(elemento, texto, velocidad) {
+    var i = 0;
+    var intervalo = setInterval(function() {
+      elemento.text(texto.slice(0, i));
+      i++;
+      if (i > texto.length) {
+        clearInterval(intervalo);
+        setTimeout(function() {
+          borrarTexto(elemento);
+        }, 10000); // Esperar 2 segundos antes de borrar el texto
+      }
+    }, velocidad);
+  }
+
+  function borrarTexto(elemento) {
+    var textoActual = elemento.text();
+    var longitudTexto = textoActual.length;
+    var intervalo = setInterval(function() {
+      elemento.text(textoActual.slice(0, longitudTexto));
+      longitudTexto--;
+      if (longitudTexto === 0) {
+        clearInterval(intervalo);
+        setTimeout(function() {
+          mostrarSiguienteFrase(elemento);
+        }, 1000); // Esperar 1 segundo antes de mostrar la siguiente frase
+      }
+    }, 50);
+  }
+
+  function mostrarSiguienteFrase(elemento) {
+    var siguienteFrase = frases[indiceActual];
+    maquinaEscribir(elemento, siguienteFrase, 100);
+    indiceActual = (indiceActual + 1) % frases.length; // Obtener el siguiente índice
+  }
+
+  var encargos = $(".encargos");
+  maquinaEscribir(encargos, frase1, 100); // Mostrar la primera frase inicialmente
+});
+
+// Función para guardar los ajustes en el almacenamiento local
+function guardarAjustes() {
+  localStorage.setItem('porcentajeSobreCompra', porcentajeSobreCompra);
+  localStorage.setItem('nuevoPrecioLibras', nuevoPrecioLibras);
+}
+
+// Función para cargar los ajustes desde el almacenamiento local
+function cargarAjustes() {
+  var porcentajeSobreCompra = localStorage.getItem('porcentajeSobreCompra');
+  var nuevoPrecioLibras = localStorage.getItem('nuevoPrecioLibras');
+
+  if (porcentajeSobreCompra && nuevoPrecioLibras) {
+    $('#tasa').val(porcentajeSobreCompra);
+    $('#precio-libras').val(nuevoPrecioLibras);
+  }
+}
+
+// Llamar a la función cargar Ajustes al cargar la página
+$(document).ready(function() {
+  cargarAjustes();
+});

@@ -1,0 +1,57 @@
+#resultado-contadora_new{
+  margin: 10% 0;
+  height: 70%;
+}
+
+#total-contadora_new{
+  text-align: center;
+  margin: 11% 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+/* Contenedor de inputs */
+.formula-inputs {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: none; /* Oculto por defecto */
+}
+
+/* Estilos para los inputs */
+input[type="number"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.no1{
+  margin-top: 10%;
+}
+
+.btn-panel3{
+border-radius: 20px;
+border: none;
+}
+
+.formulasSty {
+  margin-top: 20%;
+  color: white;
+}
+
+.btnCalcForm {
+  color: #a259ff;
+  align-items: center;
+  position: relative;
+  margin: 10px auto; /* Centra horizontalmente */
+  border: none;
+  border-radius: 10px; 
+  width: 30%;
+  height: 40px;
+  display: block; /* Asegúrate de que sea un bloque */
+}

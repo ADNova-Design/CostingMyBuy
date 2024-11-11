@@ -1,3 +1,10 @@
+*{
+    outline: none !important;
+    box-shadow: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -68,11 +75,12 @@ body {
     text-align: center;
     transition: transform 0.2s;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .card:hover {
     transform: translateY(-8px);    
-    border: 1px solid black;
+    border: 1px solid #a259ff;
 }
 
 .card h3 {

@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0 user-scalable=no, tap-highlight-color: transparent">
     <title>Calculator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -25,38 +26,48 @@
 
     <div class="container">
         <div class="card" id="card1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart"
+                viewBox="0 0 16 16">
+                <path
+                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
             </svg>
             <h3>Compras</h3>
             <p>Calcula el costo de tus encargos</p>
         </div>
         <div class="card" id="card2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/>
-                <path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/>
-                <path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/>
-                <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cash-coin"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0" />
+                <path
+                    d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z" />
+                <path
+                    d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z" />
+                <path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567" />
             </svg>
             <h3>Contadora</h3>
             <p>Lleva el control del efectivo que tienes</p>
         </div>
         <div class="card" id="card3">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
-                <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-calculator"
+                viewBox="0 0 16 16">
+                <path
+                    d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+                <path
+                    d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z" />
             </svg>
             <h3>Fórmulas</h3>
             <p>Fórmulas para organizar tus ventas</p>
         </div>
         <div class="card" id="card4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
-                <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z"/>
-              </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bank"
+                viewBox="0 0 16 16">
+                <path
+                    d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z" />
+            </svg>
             <h3>Préstamos</h3>
             <p>Lleva el control de tus préstamos</p>
         </div>
-    </div>         
+    </div>
 
     <div class="overlay" onclick="closePanel()">
         <div class="panel" id="panel1" style="display:none;" onclick="event.stopPropagation()">
@@ -139,50 +150,58 @@
             <div class="notification" id="notification"></div>
         </div>
 
-        <div class="panel" id="panel2" style="display:none;"  onclick="event.stopPropagation()">
+        <div class="panel" id="panel2" style="display:none;" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closePanel()"><i class="fas fa-times"></i></button>
             <!-- Botón de cierre -->
             <div class="smartphone">
                 <div class="vsaida">
-                    <input type="text" id="denominacion5_new" name="denominacion5_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion5_new" name="denominacion5_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion5_new">Denominación $5</label>
                 </div>
-                
+
                 <div class="vsaida">
-                    <input type="text" id="denominacion10_new" name="denominacion10_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion10_new" name="denominacion10_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion10_new">Denominación $10</label>
                 </div>
-            
+
                 <div class="vsaida">
-                    <input type="text" id="denominacion20_new" name="denominacion20_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion20_new" name="denominacion20_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion20_new">Denominación $20</label>
                 </div>
-                
+
                 <div class="vsaida">
-                    <input type="text" id="denominacion50_new" name="denominacion50_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion50_new" name="denominacion50_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion50_new">Denominación $50</label>
                 </div>
-            
+
                 <div class="vsaida">
-                    <input type="text" id="denominacion100_new" name="denominacion100_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion100_new" name="denominacion100_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion100_new">Denominación $100</label>
                 </div>
-                
+
                 <div class="vsaida">
-                    <input type="text" id="denominacion200_new" name="denominacion200_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion200_new" name="denominacion200_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion200_new">Denominación $200</label>
                 </div>
-            
+
                 <div class="vsaida">
-                    <input type="text" id="denominacion500_new" name="denominacion500_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion500_new" name="denominacion500_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion500_new">Denominación $500</label>
                 </div>
-            
+
                 <div class="vsaida">
-                    <input type="text" id="denominacion1000_new" name="denominacion1000_new" inputmode="numeric" pattern="[0-9]*" placeholder=" ">
+                    <input type="text" id="denominacion1000_new" name="denominacion1000_new" inputmode="numeric"
+                        pattern="[0-9]*" placeholder=" ">
                     <label for="denominacion1000_new">Denominación $1000</label>
                 </div>
-            
+
                 <div class="vsaida">
                     <input type="text" id="resultado-contadora-total" name="resultado_new" placeholder=" " readonly>
                     <label id="" for="resultado-contadora-total">Total</label>
@@ -193,14 +212,21 @@
         <div class="panel" id="panel3" style="display:none;" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closePanel()"><i class="fas fa-times"></i></button>
             <div class="container2">
+                <h1 style="
+                font-size: 20px;
+                text-align: center;
+                margin-bottom: 0;
+                color: white;        
+                ">Inversión y ventas</h1>
+
                 <button class="btn-panel3 no1" onclick="openFormulaPanel('costo-produccion'); event.stopPropagation();">
-                    <h3>Costo de Producción</h3>
+                    <h3 style="color: #a259ff;">Costo de Producción</h3>
                 </button>
-                <button  class="btn-panel3" onclick="openFormulaPanel('precio-venta'); event.stopPropagation();">
-                    <h3>Precio de Venta</h3>
-                </button>               
+                <button class="btn-panel3" onclick="openFormulaPanel('precio-venta'); event.stopPropagation();">
+                    <h3 style="color: #a259ff;">Precio de Venta</h3>
+                </button>
                 <button class="btn-panel3" onclick="openFormulaPanel('roi'); event.stopPropagation();">
-                    <h3>ROI</h3>
+                    <h3 style="color: #a259ff;">ROI</h3>
                 </button>
             </div>
         </div>
@@ -210,11 +236,11 @@
             <div id="search-container">
                 <input type="text" id="search" placeholder="Buscar préstamos...">
             </div>
-        
+
             <div id="loan-cards"></div>
-        
+
             <button id="add-button"><i class="fas fa-plus"></i></button>
-        
+
             <div id="form-panel" style="display: none;">
                 <div id="form-container">
                     <h2>Agregar Préstamo</h2>
@@ -232,46 +258,49 @@
         </div>
     </div>
 
-   <!-- Panel para Costo de Producción -->
-<div class="panel formula-panel" id="costo-produccion" style="display:none;" onclick="event.stopPropagation()">
-    <button class="close-btn" onclick="showPanel3(); limpiarCamposCostoProduccion()"><i class="fas fa-arrow-left"></i> Volver</button>
-    <h2 class="formulasSty">Costo de Producción</h2>
-    <p class="textPanel">Esta fórmula calcula el costo de producción de un producto.</p>
-    <label class="textPanel" for="costo-materiales">Costo de materiales:</label>
-    <input type="number" id="costo-materiales" name="costo-materiales">
-    <label class="textPanel" for="costo-manufactura">Costo de manufactura:</label>
-    <input type="number" id="costo-manufactura" name="costo-manufactura">
-    <button class="btnCalcForm" type="button" onclick="calcularCostoProduccion()">Calcular</button>
-    <p class="textPanel" id="resultado-costo-produccion"></p>
-</div>
+    <!-- Panel para Costo de Producción -->
+    <div class="panel formula-panel" id="costo-produccion" style="display:none;" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="showPanel3(); limpiarCamposCostoProduccion()"><i
+                class="fas fa-arrow-left"></i> Volver</button>
+        <h2 class="formulasSty">Costo de Producción</h2>
+        <p class="textPanel">Esta fórmula calcula el costo de producción de un producto.</p>
+        <label class="textPanel" for="costo-materiales">Costo de materiales:</label>
+        <input type="number" id="costo-materiales" name="costo-materiales">
+        <label class="textPanel" for="costo-manufactura">Costo de manufactura:</label>
+        <input type="number" id="costo-manufactura" name="costo-manufactura">
+        <button class="btnCalcForm" type="button" onclick="calcularCostoProduccion()">Calcular</button>
+        <p class="textPanel" id="resultado-costo-produccion"></p>
+    </div>
 
-<!-- Panel para Precio de Venta -->
-<div class="panel formula-panel" id="precio-venta" style="display:none;" onclick="event.stopPropagation()">
-    <button class="close-btn" onclick="showPanel3(); limpiarCamposPrecioVenta()"><i class="fas fa-arrow-left"></i> Volver</button>
+    <!-- Panel para Precio de Venta -->
+    <div class="panel formula-panel" id="precio-venta" style="display:none;" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="showPanel3(); limpiarCamposPrecioVenta()"><i class="fas fa-arrow-left"></i>
+            Volver</button>
         <h2 class="formulasSty">Precio de Venta</h2>
-    <p class="textPanel">Esta fórmula calcula el precio de venta de un producto.</p>
-    <label class="textPanel" for="costo-produccion">Costo de producción:</label>
-<input type="number" id="produccioncost" name="produccioncost">
+        <p class="textPanel">Esta fórmula calcula el precio de venta de un producto.</p>
+        <label class="textPanel" for="costo-produccion">Costo de producción:</label>
+        <input type="number" id="produccioncost" name="produccioncost">
 
-<label class="textPanel" for="gananciaPV">Margen de ganancia (%):</label>
-<input type="number" id="gananciaPV" name="gananciaPV">
+        <label class="textPanel" for="gananciaPV">Margen de ganancia (%):</label>
+        <input type="number" id="gananciaPV" name="gananciaPV">
 
-<button class="btnCalcForm" type="button" onclick="calcularPrecioVenta()">Calcular</button>
-<p class="textPanel" id="resultado-precio-venta"></p>
-</div>
+        <button class="btnCalcForm" type="button" onclick="calcularPrecioVenta()">Calcular</button>
+        <p class="textPanel" id="resultado-precio-venta"></p>
+    </div>
 
-<!-- Panel para ROI -->
-<div class="panel formula-panel" id="roi" style="display:none;" onclick="event.stopPropagation()">
-    <button class="close-btn" onclick="showPanel3(); limpiarCamposROI()"><i class="fas fa-arrow-left"></i> Volver</button>
-    <h2 class="formulasSty">ROI</h2>
-    <p class="textPanel">Esta fórmula calcula el retorno sobre la inversión (ROI).</p>
-    <label class="textPanel" for="ganancia">Ganancia:</label>
-    <input type="number" id="ganancia" name="ganancia">
-    <label class="textPanel" for="inversion">Inversión:</label>
-    <input type="number" id="inversion" name="inversion">
-    <button class="btnCalcForm" type="button" onclick="calcularROI()">Calcular</button>
-    <p class="textPanel" id="resultado-roi"></p>
-</div>
+    <!-- Panel para ROI -->
+    <div class="panel formula-panel" id="roi" style="display:none;" onclick="event.stopPropagation()">
+        <button class="close-btn" onclick="showPanel3(); limpiarCamposROI()"><i class="fas fa-arrow-left"></i>
+            Volver</button>
+        <h2 class="formulasSty">ROI</h2>
+        <p class="textPanel">Esta fórmula calcula el retorno sobre la inversión (ROI).</p>
+        <label class="textPanel" for="ganancia">Ganancia:</label>
+        <input type="number" id="ganancia" name="ganancia">
+        <label class="textPanel" for="inversion">Inversión:</label>
+        <input type="number" id="inversion" name="inversion">
+        <button class="btnCalcForm" type="button" onclick="calcularROI()">Calcular</button>
+        <p class="textPanel" id="resultado-roi"></p>
+    </div>
 
     <div class="panel-sliding" id="slidingPanel">
         <button class="panel-close-button" onclick="togglePanel()"><i class="fas fa-times"></i></button>
@@ -280,8 +309,8 @@
             <div class="panel-item" id="apariencias" onclick="">
                 <i class="fas fa-paint-brush"></i>
                 <h2>Apariencias</h2>
-            </div>            
-            <div class="panel-item"  id="sitioWeb" onclick="">
+            </div>
+            <div class="panel-item" id="sitioWeb" onclick="">
                 <i class="fas fa-globe"></i>
                 <h2>Sitio Web</h2>
             </div>
@@ -289,7 +318,7 @@
                 <i class="fas fa-headset"></i>
                 <h2>Ayuda</h2>
             </div>
-            <div class="panel-item"  id="aboutApp" onclick="">
+            <div class="panel-item" id="aboutApp" onclick="">
                 <i class="fas fa-info-circle"></i>
                 <h2>Acerca de la App</h2>
             </div>
@@ -299,22 +328,22 @@
         </div>
     </div>
 
- <!-- Ventana Modal -->
-<div id="whatsappModal" class="modal">
-    <div class="modal-content">
-        <header class="modal-header">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Soporte</h2>
-        </header>
-        <div class="modal-body">
-            <p class="msj">Al hacer clic en aceptar, se abrirá WhatsApp para que puedas recibir asistencia.</p>
+    <!-- Ventana Modal -->
+    <div id="whatsappModal" class="modal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>Soporte</h2>
+            </header>
+            <div class="modal-body">
+                <p class="msj">Al hacer clic en aceptar, se abrirá WhatsApp para que puedas recibir asistencia.</p>
+            </div>
+            <footer class="modal-footer">
+                <button id="cancelBtn">Cancelar</button>
+                <button id="acceptBtn">Aceptar</button>
+            </footer>
         </div>
-        <footer class="modal-footer">
-            <button id="cancelBtn">Cancelar</button>
-            <button id="acceptBtn">Aceptar</button>
-        </footer>
     </div>
-</div>
 
 
     <script src="js/claculadorascript.js"></script>
@@ -322,4 +351,5 @@
     <script src="js/script.js"></script>
 
 </body>
+
 </html>

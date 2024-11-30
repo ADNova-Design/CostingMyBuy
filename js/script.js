@@ -164,5 +164,5 @@ window.onload = function() {
 function actualizarTotalPrestado() {
     const loans = JSON.parse(localStorage.getItem('loans')) || [];
     const total = loans.reduce((sum, loan) => sum + parseFloat(loan.amount), 0);
-    document.getElementById('footer-panel4').innerText = 'Total En Prestamo:' + total.toFixed(2) + 'CUP';
+    document.getElementById('footer-panel4').innerText = 'Total En Prestamo:' + total.toFixed(2) + ' CUP';
 }

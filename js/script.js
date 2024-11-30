@@ -2,9 +2,9 @@ const overlay = document.querySelector('.overlay');
 const panels = document.querySelectorAll('.panel');
 
 document.querySelectorAll('.card').forEach((card, index) => {
-card.addEventListener('click', () => {
-openPanel(index + 1);
-});
+    card.addEventListener('click', () => {
+        openPanel(index + 1);
+    });
 });
 
 function openPanel(panelIndex) {
@@ -16,55 +16,44 @@ function openPanel(panelIndex) {
 }
 
 function showPanel3() {
-overlay.style.display = 'flex'; // Asegúrate de que el overlay esté visible
-panels.forEach(panel => {
-panel.style.display = 'none'; // Oculta todos los panels
-});
-document.getElementById('panel3').style.display = 'block'; // Muestra el panel3
+    overlay.style.display = 'flex'; // Asegúrate de que el overlay esté visible
+    panels.forEach(panel => {
+        panel.style.display = 'none'; // Oculta todos los panels
+    });
+    document.getElementById('panel3').style.display = 'block'; // Muestra el panel3
 }
 
 function closePanel() {
-const overlay = document.querySelector('.overlay');
-const panels = document.querySelectorAll('.panel');
-
-overlay.style.display = 'none'; // Oculta la superposición
-panels.forEach(panel => {
-panel.style.display = 'none'; // Oculta todos los panels
-});
+    overlay.style.display = 'none'; // Oculta la superposición
+    panels.forEach(panel => {
+        panel.style.display = 'none'; // Oculta todos los panels
+    });
 }
 
 function openFormulaPanel(panelId) {
-const overlay = document.querySelector('.overlay');
-const panels = document.querySelectorAll('.panel');
-const formulaPanel = document.getElementById(panelId);
-
-overlay.style.display = 'flex';
-panels.forEach(panel => {
-panel.style.display = 'none'; // Oculta todos los panels
-});
-formulaPanel.style.display = 'block'; // Muestra solo el panel de fórmula seleccionado
-
-// Asegúrate de que los inputs estén visibles
-const formulaInputs = document.querySelector('.formula-inputs');
-formulaInputs.style.display = 'block'; // Muestra el contenedor de inputs
+    overlay.style.display = 'flex';
+    panels.forEach(panel => {
+        panel.style.display = 'none'; // Oculta todos los panels
+    });
+    document.getElementById(panelId).style.display = 'block'; // Muestra solo el panel de fórmula seleccionado
 }
 
 function limpiarCamposCostoProduccion() {
-document.getElementById('costo-materiales').value = '';
-document.getElementById('costo-manufactura').value = '';
-document.getElementById('resultado-costo-produccion').innerHTML = '';
+    document.getElementById('costo-materiales').value = '';
+    document.getElementById('costo-manufactura').value = '';
+    document.getElementById('resultado-costo-produccion').innerHTML = '';
 }
 
 function limpiarCamposPrecioVenta() {
-document.getElementById('produccioncost').value = '';
-document.getElementById('gananciaPV').value = '';
-document.getElementById('resultado-precio-venta').innerHTML = '';
+    document.getElementById('produccioncost').value = '';
+    document.getElementById('gananciaPV').value = '';
+    document.getElementById('resultado-precio-venta').innerHTML = '';
 }
 
 function limpiarCamposROI() {
-document.getElementById('ganancia').value = '';
-document.getElementById('inversion').value = '';
-document.getElementById('resultado-roi').innerHTML = '';
+    document.getElementById('ganancia').value = '';
+    document.getElementById('inversion').value = '';
+    document.getElementById('resultado-roi').innerHTML = '';
 }
 
 function calcularCostoProduccion() {
@@ -75,18 +64,16 @@ function calcularCostoProduccion() {
 }
 
 function calcularPrecioVenta() {
-const costoProduccion = parseFloat(document.getElementById('produccioncost').value);
-const margenGananciaPV = parseFloat(document.getElementById('gananciaPV').value);
+    const costoProduccion = parseFloat(document.getElementById('produccioncost').value);
+    const margenGananciaPV = parseFloat(document.getElementById('gananciaPV').value);
 
-// Verifica que los valores no sean NaN y que el margen no sea 100
-if (isNaN(costoProduccion) || isNaN(margenGananciaPV) || margenGananciaPV >= 100) {
-document.getElementById('resultado-precio-venta').innerHTML = 'Por favor, ingresa valores válidos y asegúrate de que el margen sea menor a 100%.';
-return;
-}
+    if (isNaN(costoProduccion) || isNaN(margenGananciaPV) || margenGananciaPV >= 100) {
+        document.getElementById('resultado-precio-venta').innerHTML = 'Por favor, ingresa valores válidos y asegúrate de que el margen sea menor a 100%.';
+        return;
+    }
 
-// Calcula el precio de venta usando la fórmula proporcionada
-const resultado = (costoProduccion / (100 - margenGananciaPV)) * 100;
-document.getElementById('resultado-precio-venta').innerHTML = 'El precio de venta es: $' + resultado.toFixed(2);
+    const resultado = (costoProduccion / (100 - margenGananciaPV)) * 100;
+    document.getElementById('resultado-precio-venta').innerHTML = 'El precio de venta es: $' + resultado.toFixed(2);
 }
 
 function calcularROI() {
@@ -96,14 +83,11 @@ function calcularROI() {
     document.getElementById('resultado-roi').innerHTML = 'El ROI es: ' + resultado.toFixed(2) + '%';
 }
 
-
 const addButton = document.getElementById('add-button');
 const formPanel = document.getElementById('form-panel');
 const loanCards = document.getElementById('loan-cards');
 const search = document.getElementById('search');
 const saveButton = document.getElementById('save-buttonPt');
-const successNotification = document.getElementById('success-notification');
-const errorNotification = document.getElementById('error-notification');
 
 addButton.addEventListener('click', () => {
     formPanel.style.display = 'flex';
@@ -121,7 +105,6 @@ saveButton.addEventListener('click', () => {
     const time = document.getElementById('time').value;
     const timeUnit = document.getElementById('time-unit').value;
 
-    // Verificar que todos los campos requeridos estén completos
     if (name && amount && time) {
         const loan = { name, amount, time: `${time} ${timeUnit}` };
         const loans = JSON.parse(localStorage.getItem('loans')) || [];
@@ -133,10 +116,9 @@ saveButton.addEventListener('click', () => {
         document.getElementById('time').value = '';
         displayLoans();
         
-        // Mostrar notificación de éxito
         mostrarNotificacion('Datos guardados correctamente', 'success');
+        actualizarTotalPrestado();
     } else {
-        // Mostrar notificación de error
         mostrarNotificacion('Rellene los campos vacíos', 'error');
     }
 });
@@ -155,6 +137,7 @@ function displayLoans() {
         `;
         loanCards.appendChild(card);
     });
+    actualizarTotalPrestado(); // Actualiza el total al mostrar los préstamos
 }
 
 function deleteLoan(index) {
@@ -164,7 +147,6 @@ function deleteLoan(index) {
     displayLoans();
 }
 
-// Función de búsqueda
 search.addEventListener('input', () => {
     const filter = search.value.toLowerCase();
     const cards = loanCards.getElementsByClassName('cardPrestamos');
@@ -174,49 +156,13 @@ search.addEventListener('input', () => {
     });
 });
 
-// Cargar préstamos al iniciar
-displayLoans();
+window.onload = function() {
+    displayLoans();
+    actualizarTotalPrestado(); // Actualiza el total al cargar
+};
 
-
-// Función para abrir la modal
-function openModal() {
-    document.getElementById('whatsappModal').style.display = 'block';
+function actualizarTotalPrestado() {
+    const loans = JSON.parse(localStorage.getItem('loans')) || [];
+    const total = loans.reduce((sum, loan) => sum + parseFloat(loan.amount), 0);
+    document.getElementById('footer-panel4').innerText = 'Total Monto Prestado: $' + total.toFixed(2);
 }
-
-// Función para cerrar la modal
-function closeModal() {
-    document.getElementById('whatsappModal').style.display = 'none';
-}
-
-// Asignar el evento de clic al elemento "Ayuda"
-document.getElementById('helpModal').onclick = function() {
-    openModal();
-};
-
-// Asignar el evento de clic al botón "Aceptar"
-document.getElementById('acceptBtn').onclick = function() {
-    // Redirigir a WhatsApp con el mensaje preestablecido
-    const phoneNumber = '+18632541732';
-    const message = 'Necesito Soporte para el siguiente problema:';
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-    closeModal();
-};
-
-// Asignar el evento de clic al botón "Cancelar"
-document.getElementById('cancelBtn').onclick = function() {
-    closeModal();
-};
-
-// Cerrar la modal si el usuario hace clic fuera de la modal
-window.onclick = function(event) {
-    const modal = document.getElementById('whatsappModal');
-    if (event.target == modal) {
-        closeModal();
-    }
-};
-
-// Asignar el evento de clic al elemento "Sitio Web"
-document.getElementById('sitioWeb').onclick = function() {
-    window.open('https://adnova-design.github.io/ADNova/', '_blank'); // Abre la URL en una nueva pestaña
-};

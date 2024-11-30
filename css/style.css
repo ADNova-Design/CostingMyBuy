@@ -152,6 +152,19 @@ body {
     box-sizing: border-box;
 }
 
+#footer-panel4 {
+    position: fixed; /* Fija el footer en la parte inferior */
+    bottom: 0; /* Coloca el footer en la parte inferior de la ventana */
+    left: 0; /* Alinea el footer a la izquierda */
+    right: 0; /* Alinea el footer a la derecha */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
+    text-align: center; /* Centra el texto */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 20px 20px 0px 0px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra para dar un efecto de elevación */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
 #loan-cards {
     display: flex;
     flex-wrap: wrap;
@@ -171,7 +184,7 @@ body {
 
 #add-button {
     position: fixed;
-    bottom: 20px;
+    bottom: 50px;
     right: 20px;
     width: 60px;
     height: 60px;
